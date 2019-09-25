@@ -1,4 +1,4 @@
-// router.get('/', usersController.getAllUsers)
+const usersController = require("../controllers/employees");
 router.get("/");
 router.get("/:id");
 
