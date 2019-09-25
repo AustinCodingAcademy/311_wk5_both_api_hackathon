@@ -4,21 +4,18 @@ class Connection {
     constructor() {
       if (!this.pool) {
         console.log('creating connection...')
-        // this.pool = mysql.createPool({
-        //   connectionLimit: 100,
-        //   host: '104.197.7.63',
-        //   user: 'root',
-        //   password: '',
-        //   database: 'admin'
-        // })
-  
+        this.pool = mysql.createPool({
+          connectionLimit: 100,
+          host: '35.193.170.59',
+          user: 'root',
+          password: 'krHmxur1pfdGqLs8',
+          database: 'employees'
+        })
         return this.pool
       }
-  
       return this.pool
     }
   }
-  
   const instance = new Connection()
 
 module.exports = instance;
