@@ -1,0 +1,17 @@
+// const mysql = require('mysql')
+// const pool = require('../sql/connection')
+// const { handleSQLError } = require('../sql/error')
+
+const getEmployees = (req, res) => {
+    res.send("getting employees...")
+}
+
+const getEmployeesById = (req, res) => {
+    res.send("getting employees...")
+}
+
+const getEmployeesByFirstName = (req, res) => {
+    res.send("getting employees...")
+}
+
+module.exports = {getEmployees, getEmployeesById, getEmployeesByFirstName}
