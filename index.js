@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
+
 const port = process.env.PORT || 4001;
 const usersRouter = require('./routes/employees');
+
 app.get('/', (req, res) => res.send('Welcome to our API'))
 
 //Body Paser Middlewear
