@@ -13,4 +13,4 @@ const getEmployeesByFirstName = (req, res) => {
     })
 }
 
-module.exports = {}
+module.exports = {getEmployeesByFirstName};
