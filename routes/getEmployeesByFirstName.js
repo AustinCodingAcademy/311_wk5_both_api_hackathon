@@ -4,4 +4,4 @@ const router = express.Router()
 
 router.get('/employees/:first_name', controller)
 
-module.exports = router
+module.exports = router;
