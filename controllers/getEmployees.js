@@ -3,7 +3,7 @@ const mysql = require('mysql')
 const pool = require('../mysql/connection')
 
 const getEmployees = (req, res) => {
-    let sql = "SELECT * FROM ? LIMIT ?";
+    let sql = "SELECT * FROM ?? LIMIT ?";
     let replacements = [ 'employees', 50 ];
     sql = mysql.format(sql, replacements);
 
