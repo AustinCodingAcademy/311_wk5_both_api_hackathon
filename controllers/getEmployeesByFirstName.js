@@ -4,7 +4,7 @@ const pool = require('../mysql/connection')
 
 const getEmployeesByFirstName = (req, res) => {
     let sql = "SELECT * FROM ?? WHERE ?? = ?"
-    let replacements = ['employees', 'first_name', req.params.first_name]
+    let replacements = ['employees', 'first_name', req.body.first_name]
     sql = mysql.format(sql, replacements)
   
     pool.query(sql, (err, rows) => {
