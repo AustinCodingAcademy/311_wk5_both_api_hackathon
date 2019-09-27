@@ -9,8 +9,8 @@ const getEmployeesCurrentSalary = (req, res) => {
     "salaries",
     "emp_no",
     req.params.emp_no,
-    req.params.to_date,
-    "1"
+    "to_date",
+    1
   ];
 
   sql = mysql.format(sql, replacements);
