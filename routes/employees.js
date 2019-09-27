@@ -14,6 +14,6 @@ router.get("/salaries/:emp_no", usersControllerSalary.getEmployeesCurrentSalary)
 
 router.get("/departments/",usersControllerDepartments.getDept_name);
 
-//router.get('/employees/:last_name',usersController.getEmployeesByLastName);
+router.get('/employees/:last_name',usersController.getEmployeesByLastName);
 
 module.exports = router;
