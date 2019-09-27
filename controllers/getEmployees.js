@@ -8,7 +8,7 @@ const getEmployees = (req, res) => {
     sql = mysql.format(sql, replacements);
 
     pool.query(sql, (err, rows) => {
-        if (err) return handleSQLError(res, err)
+        if (err) return res.status(500).send('something went wrong');
         return res.json(rows);
     })
 }
