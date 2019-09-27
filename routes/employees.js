@@ -10,5 +10,5 @@ router.get("/", (res,req)=>{
 router.get("/:id");
 
 router.get("/firstname/:first_name", (req, res) => {
-  res.send("getting employes");
+  res.send("getting employes")
 });

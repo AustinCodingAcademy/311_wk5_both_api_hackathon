@@ -16,3 +16,7 @@ class Connection {
         return this.createPool
     }
 }
+
+const instance = new Connection()
+
+module.exports = instance;
