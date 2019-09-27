@@ -6,6 +6,6 @@ const router = express.Router();
 
 router.get('/', empCont.getEmployees);
 router.get('/:emp_no', empIdCont.getEmployeesById);
-router.get('/:first_name', empNameCont.getEmployeesByFirstName);
+router.get('/firstname/:first_name', empNameCont.getEmployeesByFirstName);
 
 module.exports = router;
