@@ -1,11 +1,8 @@
-
-const usersController = require("../controllers/employees");
-router.get("/");
+const getEmployeesController = require("../controllers/getEmployees");
+// router.get("/");
 
 // router.get('/', usersController.getAllUsers)
-router.get("/", (req,res)=>{
-  res.send('getting employees')
-});
+router.get("/", getEmployeesController);
 
 router.get("/:id");
 
