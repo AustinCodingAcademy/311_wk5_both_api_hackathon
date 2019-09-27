@@ -33,8 +33,21 @@ const getEmployeesByFirstName = (req, res) => {
   });
 };
 
+const getEmployeesByLastName = (req, res) => {
+  let sql = "SELECT ?? FROM ?? WHERE ?? = ?";
+  const replacements = ["*", "employees", "last_name", req.params.last_name];
+
+  sql = mysql.format(sql, replacements);
+
+  pool.query(sql, (err, rows) => {
+    if (err) return handleSQLError(res, err);
+    return res.json(rows);
+  });
+};
+
 module.exports = {
   getEmployees,
   getEmployeesById,
-  getEmployeesByFirstName
+  getEmployeesByFirstName,
+  getEmployeesByLastName
 };
