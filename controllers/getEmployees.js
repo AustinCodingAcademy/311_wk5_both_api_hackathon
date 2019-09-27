@@ -4,7 +4,7 @@ const pool = require('../mysql/connection')
 
 const getEmployees = (req, res) => {
     let sql = "SELECT * FROM ?";
-    let replacements = ['employees'];
+    let replacements = [ 'employees' ];
     sql = mysql.format(sql, replacements);
 
     pool.query(sql, (err, rows) => {
@@ -13,4 +13,4 @@ const getEmployees = (req, res) => {
     })
 }
 
-module.exports = {}
+module.exports = { getEmployees }

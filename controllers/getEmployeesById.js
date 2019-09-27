@@ -13,4 +13,4 @@ const getEmployeesById = (req, res) => {
     })
 }
 
-module.exports = {}
+module.exports = { getEmployeesById }
