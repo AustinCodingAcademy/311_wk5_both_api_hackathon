@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+console.log()
+=======
 const express = require("express");
 const app = express();
 const port = process.env.port || 4001;
@@ -7,3 +10,4 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Web server is listening on port ${port}!`);
 });
+>>>>>>> 00f78ccffe9e09917895cc90d41b9c5e0d746fd1
