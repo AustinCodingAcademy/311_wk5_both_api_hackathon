@@ -1,24 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const getEmployeesByFirstName = require("../controllers/getEmployeesByFirstName");
 const getEmployeesController = require("../controllers/getEmployees");
-const getEmployeesById = require("../controllers/getEmployeesById");
+const getEmployeesByIdController = require("../controllers/getEmployeesById");
+const getEmployeesByFirstNameController = require("../controllers/getEmployeesByFirstName");
 
-router.get("/", getEmployeesController);
-router.get("/employees/firstname/:first_name", getEmployeesByFirstName);
-
-router.get("/:id");
-
-router.get("/firstname/:first_name", (req, res) => {
-  res.send("getting employes");
-});
-
-router.get("/", getEmployeesController);
-
-router.get("/:id", getEmployeesById);
-
-router.get("/firstname/:first_name", (req, res) => {
-  res.send("getting employes");
-});
+router.get("/employees", getEmployeesController.getAllEmployees);
+router.get("/employees/:id", getEmployeesByIdController.getEmployeesById);
+module.exports = { getEmployeesByFirstName };
+router.get("/employees/firstname/:first_name", getEmployeesByFirstNameController.);
 
 module.exports = router;
