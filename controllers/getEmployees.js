@@ -13,4 +13,4 @@ const getAllEmployees = (req, res) => {
 	});
 };
 
-module.exports = { getAllEmployees };
+module.exports = getAllEmployees

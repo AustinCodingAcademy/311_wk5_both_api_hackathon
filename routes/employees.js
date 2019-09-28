@@ -6,7 +6,6 @@ const getEmployeesByFirstNameController = require("../controllers/getEmployeesBy
 
 router.get("/employees", getEmployeesController.getAllEmployees);
 router.get("/employees/:id", getEmployeesByIdController.getEmployeesById);
-module.exports = { getEmployeesByFirstName };
-router.get("/employees/firstname/:first_name", getEmployeesByFirstNameController.);
+router.get("/employees/firstname/:first_name", getEmployeesByFirstNameController.getEmployeesByFirstName);
 
 module.exports = router;
