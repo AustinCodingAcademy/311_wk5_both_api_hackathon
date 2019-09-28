@@ -1,5 +1,4 @@
 const mysql = require('mysql')
-// const employeesControllers = require('./employees')
 const pool = require('../mysql/connection')
 
 const getEmployeesByFirstName = (req, res) => {
