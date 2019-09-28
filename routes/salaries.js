@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const getSalariesController = require("../controllers/getSalaries");
-const getSalariesByIdController = require("../controllers/getSalariesById");
+const getSalariesController = require("../controllers/getEmployeesSalaries");
+const getSalariesByIdController = require("../controllers/getEmployeesSalariesById");
 const getSalariesByFirstNameController = require("../controllers/getSalariesByFirstName");
 
 router.get("/salaries", getSalariesController.getAllSalaries);
