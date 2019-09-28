@@ -1,10 +1,9 @@
 const mysql = require('mysql')
-// const employeesControllers = require('./employees')
 const pool = require('../mysql/connection')
 
 const getAllTitles = (req, res) => {
-    let sql = "SELECT * FROM ?? LIMIT ?";
-    let replacements = [ 'employees', 50 ];
+    let sql = "SELECT DISTINCT ?? FROM ??";
+    let replacements = ['title', 'titles'];
     sql = mysql.format(sql, replacements);
 
     pool.query(sql, (err, rows) => {
