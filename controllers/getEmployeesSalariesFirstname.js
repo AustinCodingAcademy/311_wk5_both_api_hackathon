@@ -2,10 +2,9 @@ const mysql = require("mysql");
 const pool = require("../mysql/connections");
 const { handleSQLError } = require("../mysql/error");
 
-const getEmployeesSalaries = (req, res) => {
-  // SELECT ALL USERS
-  let sql = "SELECT * FROM ?? where ?? = ?";
-  sql = mysql.format(sql, ["salaries","emp_no", req.params.salaries]);
+const getEmployeesSalariesFirstName = (req, res) => {
+  let sql = "SELECT * FROM ?? WHERE ?? = ?";
+  sql = mysql.format(sql, ["salaries", "employees", req.params.first_name]);
 
   pool.query(sql, (err, rows) => {
     if (err) return handleSQLError(res, err);
@@ -13,4 +12,4 @@ const getEmployeesSalaries = (req, res) => {
   });
 };
 
-module.exports = { getEmployeesSalaries };
+module.exports = { getEmployeesSalariesFirstName };
