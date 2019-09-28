@@ -1,3 +1,5 @@
+const { handleSQLError } = require("../mysql/error");
+
 const getEmployeesById = (req, res) => {
 	// SELCT USERS WHERE IS = <REQ PARAMS ID>;
 	let sql = "SELECT * FROM ?? WHERE ?? = ?";
