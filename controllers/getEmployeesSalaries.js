@@ -4,8 +4,8 @@ const { handleSQLError } = require("../mysql/error");
 
 const getEmployeesSalaries = (req, res) => {
   // SELECT ALL USERS
-  let sql = "SELECT * FROM ?? where ?? = ?";
-  sql = mysql.format(sql, ["salaries","emp_no", req.params.salaries]);
+  let sql = "SELECT ?? FROM ?? where ?? = ?";
+  sql = mysql.format(sql, ["salary", "salaries", "emp_no", req.params.id]);
 
   pool.query(sql, (err, rows) => {
     if (err) return handleSQLError(res, err);
