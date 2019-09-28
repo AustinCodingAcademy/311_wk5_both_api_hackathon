@@ -3,8 +3,8 @@ const mysql = require('mysql')
 const pool = require('../mysql/connection')
 
 const getIdWithSalary = (req, res) => {
-    let sql = "SELECT ?? FROM ?? WHERE ?? = ?"
-    let replacements = ['salary', 'salaries', 'emp_no', req.params.id]
+    let sql = "SELECT * FROM ?? WHERE ?? = ?"
+    let replacements = ['salaries', 'emp_no', req.params.id]
     sql = mysql.format(sql, replacements)
   
     pool.query(sql, (err, rows) => {
