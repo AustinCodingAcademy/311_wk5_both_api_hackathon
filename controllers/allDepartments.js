@@ -2,7 +2,7 @@ const mysql = require('mysql')
 // const employeesControllers = require('./employees')
 const pool = require('../mysql/connection')
 
-const getIdWithSalary = (req, res) => {
+const getIdWithDepartment = (req, res) => {
     // let sql = "SELECT * FROM ?? LIMIT ?";
     // let replacements = [ 'employees', 50 ];
     // sql = mysql.format(sql, replacements);
@@ -13,4 +13,4 @@ const getIdWithSalary = (req, res) => {
     // })
 }
 
-module.exports = { getIdWithSalary }
+module.exports = { getIdWithDepartment }
