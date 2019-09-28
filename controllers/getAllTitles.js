@@ -2,10 +2,10 @@ const mysql = require("mysql");
 const pool = require("../mysql/connections");
 const { handleSQLError } = require("../mysql/error");
 
-const getAllEmployees = (req, res) => {
+const getAllTitles = (req, res) => {
 	// SELECT ALL USERS
-	let sql = "SELECT * FROM ?? LIMIT ?"
-	sql = mysql.format(sql, ["employees", 50])
+	let sql = "SELECT DISTINCT ?? FROM ??";
+	sql = mysql.format(sql, ["title", "titles"]);
 
 	pool.query(sql, (err, rows) => {
 		if (err) return handleSQLError(res, err);
@@ -13,4 +13,4 @@ const getAllEmployees = (req, res) => {
 	});
 };
 
-module.exports = { getAllEmployees }
+module.exports = { getAllTitles };
