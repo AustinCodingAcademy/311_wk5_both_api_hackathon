@@ -3,11 +3,11 @@ const router = express.Router()
 
 //put controllers here
 const allDepartments = require('../controllers/getDepartments')
-const employeesByDepartmentsById = require("../controllers/getEmplByDeptsById")
+const departmentsByEmployeeId = require("../controllers/getDeptsByEmplById")
 
 //add routes here
 router.get("/departments", allDepartments.getAllDepartments)
 
-router.get("/departments/:id", employeesByDepartmentsById.getDeptsByEmplById)
+router.get("/departments/employees/:id", departmentsByEmployeeId.getDeptsByEmplById)
 
 module.exports = router
