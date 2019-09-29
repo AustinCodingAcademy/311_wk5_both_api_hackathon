@@ -3,10 +3,12 @@ const app = express();
 //const bodyParser = require('body-parser')
 const employeesRouter = require("./routes/employees");
 const salariesRouter = require("./routes/salaries");
+const departmentsRouter = require("./routes/departments")
 const port = process.env.port || 4001;
 
 app.use(employeesRouter);
 app.use(salariesRouter);
+app.use(departmentsRouter);
 
 app.get("/", (req, res) => {
   res.send("Welcome to our API");
