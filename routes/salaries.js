@@ -3,12 +3,12 @@ const router = express.Router();
 
 const getEmployeesSalaries = require("../controllers/getEmployeesSalaries");
 const getEmployeesSalariesById = require("../controllers/getEmployeesSalariesById");
-const getEmployeesSalariesFirstName = require("../controllers/getEmployeesSalariesFirstname");
+const employeesSalariesFirstName = require("../controllers/getEmployeesByFirstName");
 
 router.get("/salaries", getEmployeesSalaries.getEmployeesSalaries);
 
 router.get("/salaries/:id", getEmployeesSalaries.getEmployeesSalaries);
 
-router.get("/salaries/:firstname", getEmployeesSalariesFirstName.getEmployeesSalariesFirstName);
+//router.get("/salaries/:firstname", employeesSalariesFirstName.getEmployeesSalariesById);
 
 module.exports = router;
