@@ -7,7 +7,7 @@ const employeesSalariesFirstName = require("../controllers/getEmployeesByFirstNa
 
 router.get("/salaries", getEmployeesSalaries.getEmployeesSalaries);
 
-router.get("/salaries/:id", getEmployeesSalaries.getEmployeesSalaries);
+router.get("/salaries/:id", getEmployeesSalariesById.getEmployeesSalariesById);
 
 //router.get("/salaries/:firstname", employeesSalariesFirstName.getEmployeesSalariesById);
 
