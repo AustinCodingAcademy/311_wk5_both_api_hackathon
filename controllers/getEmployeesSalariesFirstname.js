@@ -5,8 +5,8 @@ const { handleSQLError } = require("../mysql/error");
 
 const getEmployeesSalariesFirstName = (req, res) => {
   console.log('dirty durden')
-  let sql = "SELECT ??, ??, ?? FROM ?? JOIN ?? WHERE ?? = ?"
-  sql = mysql.format(sql, ["employees.first_name", "employees.last_name", "salaries.salary", "employees", "salaries", "employees.first_name", req.params.firstname])
+  let sql = "SELECT ??, ??, ?? FROM ?? JOIN ?? WHERE ?? = ? LIMIT ?"
+  sql = mysql.format(sql, ["employees.first_name", "employees.last_name", "salaries.salary", "employees", "salaries", "employees.first_name", req.params.firstname, 1000])
   console.log(sql)
 
   pool.query(sql, (err, rows) => {
