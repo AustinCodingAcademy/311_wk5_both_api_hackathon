@@ -13,7 +13,7 @@ class Connection {
             })
             return this.pool
         }
-        return this.createPool
+        return this.pool
     }
 }
 
