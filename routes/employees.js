@@ -9,6 +9,9 @@ router.get("/employees", getEmployeesController.getAllEmployees);
 
 router.get("/employees/:id", getEmployeesByIdController.getEmployeesById);
 
-router.get("/employees/firstname/:first_name", getEmployeesByFirstNameController.getEmployeesByFirstName);
+router.get(
+	"/employees/firstname/:first_name",
+	getEmployeesByFirstNameController.getEmployeesByFirstName
+);
 
-module.exports = router
+module.exports = router;
