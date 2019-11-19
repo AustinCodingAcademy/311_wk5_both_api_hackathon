@@ -4,11 +4,11 @@ const { handleSQLError } = require('../mysql/error');
 
 //getEmployees
 exports.getEmployees = function getEmployees(req, res) {
-	// pool.query('SELECT * FROM employees', (err, rows) => {
-	// 	if (err) return handleSQLError(res, err);
-	// 	return res.json(rows);
-	// });
-	res.send('hey hey');
+	pool.query('SELECT * FROM employees limit 100', (err, rows) => {
+		if (err) return handleSQLError(res, err);
+		return res.json(rows);
+	});
+	// res.send('hey hey');
 };
 
 //getEmployeesById
