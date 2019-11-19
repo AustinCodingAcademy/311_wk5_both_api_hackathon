@@ -6,6 +6,6 @@ router.get('/salaries/50/', salariesController.getSalaries);
 
 router.get('/salaries/:id', salariesController.getSalariesById);
 
-router.get('/bigmoney', salariesController.getSalariesRangeHigh);
+router.get('/bigmoney/big/money', salariesController.getSalariesRangeHigh);
 
 module.exports = router;

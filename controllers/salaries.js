@@ -27,8 +27,8 @@ const getSalariesById = (req, res) => {
 };
 
 const getSalariesRangeHigh = (req, res) => {
-  let sql = "SELECT * FROM ?? WHERE ?? = ?";
-  let replacements = ["employees.salaries", "salary", `${req.params.id}`];
+  let sql = "SELECT * FROM ?? ORDER BY ?? DESC";
+  let replacements = ["employees.salaries", "salary"];
   sql = mysql.format(sql, replacements);
 
   console.log(replacements);
