@@ -6,12 +6,12 @@ const getEmployees = (req, res) => {
   let sql = "SELECT * FROM ?? LIMIT ?";
   let replacements = ["employees.employees", 50];
   sql = mysql.format(sql, replacements);
-
+  
   pool.query(sql, (err, results) => {
     if (err) return sqlErrorHandler(res, err);
     return res.json(results);
   });
-};
+  };
 
 const getEmployeesById = (req, res) => {
   let sql = "SELECT * FROM ?? WHERE ?? = ?";
@@ -25,7 +25,14 @@ const getEmployeesById = (req, res) => {
 };
 
 const getEmployeesByFirstName = (req, res) => {
-  res.send("getting employees...");
+  let sql = "SELECT * FROM ?? WHERE ?? = ?"
+  let replacements = ["employees.employees", "first_name", `${req.params.first_name}`];
+  sql = mysql.format(sql, replacements);
+
+  pool.query(sql, (err, results) => {
+    if (err) return sqlErrorHandler(res, err);
+    return res.json(results);
+  });
 };
 
 module.exports = { getEmployees, getEmployeesById, getEmployeesByFirstName };
