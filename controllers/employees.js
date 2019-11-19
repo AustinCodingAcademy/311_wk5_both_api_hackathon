@@ -22,6 +22,7 @@ const getEmployeesById = (req, res) => {
     });
 }
 
+// Gets employees by first name
 const getEmployeesByFirstName = (req, res) => {
     let sql = 'SELECT * FROM ?? WHERE first_name = ?';
     sql = mysql.format(sql, [first_name]);
