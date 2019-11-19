@@ -14,7 +14,14 @@ const getEmployees = (req, res) => {
 };
 
 const getEmployeesById = (req, res) => {
-  res.send("getting employees...");
+  let sql = "SELECT * FROM ?? WHERE ?? = ?";
+  let replacements = ["employees.employees", "emp_no", `${req.params.id}`];
+  sql = mysql.format(sql, replacements);
+
+  pool.query(sql, (err, results) => {
+    if (err) return sqlErrorHandler(res, err);
+    return res.json(results);
+  });
 };
 
 const getEmployeesByFirstName = (req, res) => {
