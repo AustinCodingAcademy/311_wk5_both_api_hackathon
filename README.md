@@ -1,8 +1,15 @@
+// (Justin)Person who is doing database work
+  Do the instructions under Database heading
+// Person doing the Initialize Project
+ (Matt) Do the collaboration heading
+  Do the creating apis Heading
+
+
 ## IMPORTANT
 
 Read this ENTIRE document before beginning work.
 
-## Collaboration
+## Collaboration ( Matt )
 
 ONE person from the group will fork this repo from ACA. That person will give everyone else permissions as a "collaborator". From that point on, you will all clone THE ONE repo and your changes will be in the form of __pull requests__. For each change/ticket you will create a new branch and work from there. Remember to always pull the latest from the master branch before you being on a new task.
 
@@ -82,7 +89,7 @@ We are going to use sample data given to use by MySQL. An overview of the proces
 
 11. Start tinkering with the data via SELECT statements to get familiar with it. We will use this data with our API
 
-## Creating APIs
+## Creating APIs ( Matt )
 
 Let's get started...
 
