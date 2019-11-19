@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.router;
 
+const employeesController  = require('../controllers/employees')
+
 router.get('/', (req, res) => {
   res.send('getting employees...');
 })
