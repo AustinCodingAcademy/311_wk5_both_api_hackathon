@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "// (Justin)Person who is doing database work   Do the instructions under Database heading // Person doing the Initialize Project  (Matt) Do the collaboration heading   Do the creating apis Heading",
   "main": "index.js",
+  "start": "nodemon ./index.js",
   "scripts": {
     "re-testing": "echo \"Error: no test specified\" && exit 1"
-  }
-  {
-    "start": "nodemon ./index.js"
   },
+ 
+
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JustinBarsalou/311_wk5_both_api_hackathon.git"
