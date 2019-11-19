@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const employeeController = require("../controllers/employees")
 
 const router = express.Router()
 
@@ -7,10 +8,10 @@ const router = express.Router()
 
 router.use(bodyParser.json())
 
-router.get("/", (req, res) => res.send('getting employee data'))
+router.get("/", employeeController.getEmployees)
 
-router.get("/:id", (req, res) => res.send('getting specific employee'))
+router.get("/:id", employeeController.getEmployeesById)
 
-router.get("/firstname/:first_name", (req, res) => res.send ('getting employee by first name'))
+router.get("/firstname/:first_name", employeeController.getEmployeesByFirstName)
 
 module.exports = router
