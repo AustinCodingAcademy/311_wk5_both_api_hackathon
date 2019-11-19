@@ -1,5 +1,6 @@
 const mysql = require('mysql')
 const pool = require ('../mysql/connection')
+const sqlErrorHandler = require('../mysql/error')
 
 const getEmployees = (req, res) => {
   res.send('getting employees...')
