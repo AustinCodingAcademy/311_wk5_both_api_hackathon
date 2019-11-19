@@ -23,14 +23,14 @@ const getEmployees = (req, res) => {
   }
 
   const getEmployeesByFirstName = (req, res) => {
-    // DELETE FROM USERS WHERE FIRST NAME = <REQ PARAMS FIRST_NAME>
-    let sql = "DELETE FROM employees WHERE first_name = ?"
+    // SELECT FROM USERS WHERE FIRST NAME = <REQ PARAMS FIRST_NAME>
+    let sql = "SELECT * FROM employees WHERE first_name = ?"
     // WHAT GOES IN THE BRACKETS
     sql = mysql.format(sql, [req.params.first_name])
   
-    pool.query(sql, (err, results) => {
+    pool.query(sql, (err, rows) => {
       if (err) return handleSQLError(res, err)
-      return res.json({ message: `Deleted ${results.affectedRows} user(s)` });
+      return res.json(rows);
     })
   }
 

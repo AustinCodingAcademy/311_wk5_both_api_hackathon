@@ -10,7 +10,7 @@ router.use(bodyParser.json())
 
 router.get("/", employeeController.getEmployees)
 
-router.get("/:id", employeeController.getEmployeesById)
+router.get("/:emp_no", employeeController.getEmployeesById)
 
 router.get("/firstname/:first_name", employeeController.getEmployeesByFirstName)
 
