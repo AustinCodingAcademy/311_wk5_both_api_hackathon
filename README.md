@@ -95,7 +95,7 @@ Let's get started...
 
 ### STEPS
 
-#### 1. Initialize your project
+#### 1. Initialize your project (Done Matt)
 
 * In this folder run `npm init`. Accept all the defaults (press enter a bunch of times)
 

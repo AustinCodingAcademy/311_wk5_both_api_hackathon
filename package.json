@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "// (Justin)Person who is doing database work   Do the instructions under Database heading // Person doing the Initialize Project  (Matt) Do the collaboration heading   Do the creating apis Heading",
   "main": "index.js",
-  "start": "nodemon ./index.js",
   "scripts": {
+    "start": "nodemon ./index.js",
     "re-testing": "echo \"Error: no test specified\" && exit 1"
   },
  
