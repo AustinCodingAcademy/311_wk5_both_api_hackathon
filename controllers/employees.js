@@ -1,15 +1,15 @@
 const mysql = require('mysql')
 const pool = require ('../mysql/connection')
 
-const getEmployees = (res, req) => {
+const getEmployees = (req, res) => {
   res.send('getting employees...')
 };
 
-const getEmployeesById = (res, req) => {
+const getEmployeesById = (req, res) => {
   res.send('getting employees...')
 }
 
-const getEmployeesByFirstName = (res, req) => {
+const getEmployeesByFirstName = (req, res) => {
   res.send('getting employees...')
 }
 
