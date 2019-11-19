@@ -1,5 +1,11 @@
-router.get('/:id, fisrtname/:first_name')
+const express = require('express')
 
-router.get('/employees', (req, res) => {
+const employeeRoutes = express.Router()
+const employeeController = require("../controllers/employees")
+
+
+employeeRoutes.get('/employees/:id, fisrtname/:first_name', (req, res) => {
   res.send("getting employees...");
-  });
+});
+
+router.get('/employees')
