@@ -8,7 +8,7 @@ const getDepartments = (req, res) => {
   sql.mysql.format(sql, replacements);
 
   pool.query(sql, (err, results) => {
-    if (err) return sqlErrorHandler(err, res);
+    if (err) return sqlErrorHandler(res, err);
     return res.json(results);
   });
 };
@@ -33,6 +33,7 @@ const employeesPerDepartment = (req, res) => {
     })
   );
 };
+// // RUNS IN MYSQL WORKBENCH
 // SELECT count(*) as employees, dept_name
 // FROM employees.dept_emp
 // JOIN employees.departments
@@ -41,7 +42,33 @@ const employeesPerDepartment = (req, res) => {
 // group by
 // dept_name
 
-const getDepartmentManagers = (req, res) => {};
+const getDepartmentManagers = (req, res) => {
+  let sql = "SELECT ??, ?? FROM ?? JOIN ?? ON ?? = ?? JOIN ?? ON ?? = ??";
+  let replacements = [
+    "first_name",
+    "dept_name",
+    "employees.employees",
+    "employees.dept_manager",
+    "employees.employees.emp_no",
+    "employees.dept_manager.emp_no",
+    "employees.departments",
+    "employees.dept_manager.dept_no",
+    "employees.departments.dept_no"
+  ];
+  sql = mysql.format(sql, replacements);
+
+  pool.query(sql, (err, results) => {
+    if (err) return sqlErrorHandler(res, err);
+    return res.json(results);
+  });
+};
+// // RUNS IN MYSQL WORKBENCH
+// SELECT first_name, dept_name
+// FROM employees.employees
+// JOIN employees.dept_manager
+// ON employees.employees.emp_no = employees.dept_manager.emp_no
+// JOIN employees.departments
+// ON employees.dept_manager.dept_no = employees.departments.dept_no
 
 module.exports = {
   getDepartments,
