@@ -8,12 +8,17 @@ exports.getEmployees = function getEmployees(req, res) {
 		if (err) return handleSQLError(res, err);
 		return res.json(rows);
 	});
-	// res.send('hey hey');
 };
 
 //getEmployeesById
 exports.getEmployeesById = function getEmployeesById(req, res) {
-	res.send('getting employees...');
+  let sql = 'SELECT * FROM employees WHERE emp_no = ?';
+  sql = mysql.format(sql, [req.params.id]);
+
+  pool.query(sql , (err, rows) => {
+    if (err) return handleSQLError(res, err);
+    return res.json(rows);
+  })
 };
 
 //getEmployeesByFirstName
