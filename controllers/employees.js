@@ -78,8 +78,8 @@ const getIdWithSalary = (req, res) => {
 
   const getTitles = (req, res) => {
  
-    let sql = "SELECT * FROM ?? WHERE ?? = ?"
-    let replacements = ['salaries', 'emp_no', req.params.id]
+    let sql = "SELECT * FROM ?? LIMIT ?";
+    let replacements = [ 'titles', 50 ];
     sql = mysql.format(sql, replacements)
   
       pool.query(sql, (err, rows) => {
@@ -89,9 +89,9 @@ const getIdWithSalary = (req, res) => {
   } 
 
 const getDepartments = (req, res) => {
-    // SELECT ALL EMployees
+    
     let sql = "SELECT * FROM ?? LIMIT ?";
-    let replacements = [ 'employees', 50 ];
+    let replacements = [ 'departments', 50 ];
     sql = mysql.format(sql, replacements);
     
     pool.query(sql, (err, rows) => {
