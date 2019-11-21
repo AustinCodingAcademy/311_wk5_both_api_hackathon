@@ -62,13 +62,6 @@ const getDepartmentManagers = (req, res) => {
     return res.json(results);
   });
 };
-// // RUNS IN MYSQL WORKBENCH
-// SELECT first_name, dept_name
-// FROM employees.employees
-// JOIN employees.dept_manager
-// ON employees.employees.emp_no = employees.dept_manager.emp_no
-// JOIN employees.departments
-// ON employees.dept_manager.dept_no = employees.departments.dept_no
 
 module.exports = {
   getDepartments,

@@ -9,9 +9,9 @@ const departmentRouter = require("./routes/departments");
 const PORT = process.env.PORT || 4001;
 
 app.use(bodyParser.json());
-app.use(employeesRouter);
-app.use(salariesRouter);
-app.use(departmentRouter);
+app.use('/employees', employeesRouter);
+app.use('/salaries', salariesRouter);
+app.use('/departments', departmentRouter);
 
 //Test code
 app.get("/what", (req, res) => {
