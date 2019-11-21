@@ -8,7 +8,6 @@ exports.getEmployees = function getEmployees(req, res) {
 		if (err) return handleSQLError(res, err);
 		return res.json(rows);
 	});
-	// res.send('hey hey');
 };
 
 //getEmployeesById
@@ -18,10 +17,11 @@ exports.getEmployeesById = function getEmployeesById(req, res) {
 
 //getEmployeesByFirstName
 exports.getEmployeesByFirstName = function getEmployeesByFirstName(req, res) {
-	pool.query('SELECT * FROM users where first_name = ?', (err, rows) => {
+	pool.query('SELECT * FROM employees where first_name = ?', (err, rows) => {
 		sql = mysql.format(sql, req.body.first_name);
 
 		if (err) return handleSQLError(res, err);
 		return res.json(rows);
 	});
+	// res.send('firstname');
 };
