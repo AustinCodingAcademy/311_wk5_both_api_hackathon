@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 
 
 
-app.get("/index.js", (request,response) => {
+app.get('/', (request,res) => {
   res.send(['Welcome to our API']);
 })
 app.listen(port, () => {
