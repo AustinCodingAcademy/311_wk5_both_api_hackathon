@@ -12,3 +12,6 @@ router.get('/employees/:id', getEmployeesById);
 router.get('/employees/firstname/:first_name', getEmployeesByFirstName);
 
 module.exports = router;
+
+
+I'm sick af
