@@ -137,7 +137,7 @@ Let's get started...
 * Congratulations, we have a server running
 
 
-#### 3. Express routes - BEGINNING
+#### 3. Express routes - BEGINNING (John)
 
 * Create a new folder called `routes`
 
@@ -149,7 +149,7 @@ Let's get started...
 
 * Export the router and import it into the `index.js` file. Use it with the prefix of "employees" so that each route above starts with "employees"
 
-#### 4. Express controllers - BEGINNING
+#### 4. Express controllers - BEGINNING (Justin)
 
 * Create a new folder called `controllers`
 
