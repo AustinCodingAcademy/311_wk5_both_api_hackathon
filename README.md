@@ -132,7 +132,7 @@ Let's get started...
 
 #### 3. Express routes - BEGINNING
 
-* Create a new folder called `routes`
+* Create a new folder called `routes`/
 
 * In the routes folder, create a new file called `employees.js`
 
