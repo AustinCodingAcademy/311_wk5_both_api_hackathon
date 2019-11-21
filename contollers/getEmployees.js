@@ -1,7 +1,7 @@
-const comments = require('');
+const employees = require('');
 
 function getEmployees(request,response) {
-  return response.json();
+  return response.json(employees);
 }
 
 
