@@ -14,10 +14,10 @@ app.use(salariesRouter);
 app.use(departmentRouter);
 
 //Test code
-app.get('/what', (req, res) => {
-  console.log('hi')
-  res.send('hi')
-})
+app.get("/what", (req, res) => {
+  console.log("hi");
+  res.send("hi");
+});
 
 app.listen(PORT, () => {
   console.log(`server is listening on port ${PORT}`);
