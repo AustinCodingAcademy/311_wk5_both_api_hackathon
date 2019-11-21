@@ -1,6 +1,18 @@
-const employees = require('../routes/employees');
 
-// I don't think I did this one correctly
 
-module.exports = employees;
+
+const getEmployees = (req, res) => {
+  res.send('getting employees...');
+}
+
+const getEmployeesByFirstName = (req, res) => {
+  res.send('getting employees...');
+}
+
+const getEmployeesById = (req, res) => {
+  res.send('getting employees...');
+}
+
+
+module.exports = {getEmployees, getEmployeesByFirstName, getEmployeesById};
 
