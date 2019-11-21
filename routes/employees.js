@@ -16,7 +16,7 @@ router.get('/departments', usersController.getDepartments);
 
 router.get('/titles', usersController.getTitles);
 
-router.get('/salaries/:emp_id', usersController.getIdWithSalary);
+router.get('/salaries/salary/:id', usersController.getIdWithSalary);
 
 
 

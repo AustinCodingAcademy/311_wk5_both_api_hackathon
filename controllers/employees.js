@@ -64,7 +64,7 @@ const getIdWithDepartment = (req, res) => {
       return res.json(rows);
   })
 }
-const getSalaryWithId = (req, res) => {
+const getIdWithSalary = (req, res) => {
  
     let sql = "SELECT * FROM ?? WHERE ?? = ?"
     let replacements = ['salaries', 'emp_no', req.params.id]
