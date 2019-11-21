@@ -17,7 +17,7 @@ const getEmployees = (req, res) => {
 const getEmployeesById = (req, res) => {
   // SELECT USERS WHERE ID = <REQ PARAMS ID>
   let sql = "SELECT * FROM ?? WHERE ?? = ?"
-    let replacements = ['employees', 'emp_no', req.params.emp_no]
+    let replacements = ['employees', 'emp_no', req.params.id]
     sql = mysql.format(sql, replacements)
 
     pool.query(sql, (err, rows) => {
@@ -28,7 +28,7 @@ const getEmployeesById = (req, res) => {
 
 
 const getEmployeesByFirstName = (req, res) => {
-  // INSERT INTO USERS FIRST AND LAST NAME 
+  
   let sql = "SELECT * FROM ?? WHERE ?? = ?"
     let replacements = ['employees', 'first_name', req.params.first_name]
     sql = mysql.format(sql, replacements)
@@ -37,11 +37,11 @@ const getEmployeesByFirstName = (req, res) => {
       if (err) return res.status(500).send('something went wrong');
       return res.json(rows);
   })
+
 }
 
-
-const getIdWithSalary = (req, res) => {
-  // INSERT INTO USERS FIRST AND LAST NAME 
+const getSalaryWithId = (req, res) => {
+ 
   let sql = "SELECT * FROM ?? WHERE ?? = ?"
   let replacements = ['salaries', 'emp_no', req.params.id]
   sql = mysql.format(sql, replacements)
@@ -50,32 +50,60 @@ const getIdWithSalary = (req, res) => {
       if (err) return res.status(500).send('something went wrong');
       return res.json(rows);
   })
-}
+} 
 
+// Work on functions below////////
 
 const getIdWithDepartment = (req, res) => {
-  // INSERT INTO USERS FIRST AND LAST NAME 
+
   let sql = "SELECT * FROM ?? WHERE ?? = ?"
-  let replacements = ['dept_emp', 'emp_no', req.params.id]
+  let replacements = ['dept_emp','emp_no' ,req.params.id]
   sql = mysql.format(sql, replacements)
     pool.query(sql, (err, rows) => {
       if (err) return res.status(500).send('something went wrong');
       return res.json(rows);
   })
 }
+const getSalaryWithId = (req, res) => {
+ 
+    let sql = "SELECT * FROM ?? WHERE ?? = ?"
+    let replacements = ['salaries', 'emp_no', req.params.id]
+    sql = mysql.format(sql, replacements)
+  
+      pool.query(sql, (err, rows) => {
+        if (err) return res.status(500).send('something went wrong');
+        return res.json(rows);
+    })
+  } 
 
+  const getTitles = (req, res) => {
+ 
+    let sql = "SELECT * FROM ?? WHERE ?? = ?"
+    let replacements = ['salaries', 'emp_no', req.params.id]
+    sql = mysql.format(sql, replacements)
+  
+      pool.query(sql, (err, rows) => {
+        if (err) return res.status(500).send('something went wrong');
+        return res.json(rows);
+    })
+  } 
 
-const getSalaryById = (req, res) => {
-  // INSERT INTO USERS FIRST AND LAST NAME 
-  let sql = "SELECT * FROM ?? WHERE ?? = ?"
-  let replacements = ['salaries', 'emp_no', req.params.id]
-  sql = mysql.format(sql, replacements)
+const getDepartments = (req, res) => {
+    // SELECT ALL EMployees
+    let sql = "SELECT * FROM ?? LIMIT ?";
+    let replacements = [ 'employees', 50 ];
+    sql = mysql.format(sql, replacements);
+    
     pool.query(sql, (err, rows) => {
       if (err) return res.status(500).send('something went wrong');
       return res.json(rows);
   })
-}
+  }
 
 
 
-module.exports = { getEmployees, getEmployeesById, getEmployeesByFirstName, getIdWithSalary, getIdWithDepartment, getSalaryById}
+
+
+
+
+module.exports = { getEmployees, getEmployeesById, getEmployeesByFirstName, getIdWithSalary, getIdWithDepartment, getSalaryWithId, getDepartments,getTitles, }

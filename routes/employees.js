@@ -6,14 +6,23 @@ router.get('/', usersController.getEmployees)
 
 router.get('/:id', usersController.getEmployeesById)
 
-router.get('firstname/:first_name', usersController.getEmployeesByFirstName)
+router.get('/first_name/:first_name', usersController.getEmployeesByFirstName)
 
-router.get('/salaries/employees/:id', usersController.getIdWithSalary);
+router.get('/salaries/:id', usersController.getSalaryWithId);
 
 router.get('/departments/employees/:id', usersController.getIdWithDepartment);
 
-router.get('/salaries/:empid', usersController.getSalaryById);
+router.get('/departments', usersController.getDepartments);
+
+router.get('/titles', usersController.getTitles);
+
+router.get('/salaries/:emp_id', usersController.getIdWithSalary);
 
 
-module.exports = router
+
+
+
+
+
+module.exports = router 
 
