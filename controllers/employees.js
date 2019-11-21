@@ -5,7 +5,7 @@ const {handleSQLError} = require('../sql/error');
 
 // Selects all users from the DB
 const getEmployees = (req, res) => {
-    pool.query('SELECT * FROM employees', (err, rows) => {
+    pool.query('SELECT * FROM employees limit 100', (err, rows) => {
         if(err) return handleSQLError(res, err);
         return res.json(rows);
     });
@@ -15,7 +15,7 @@ const getEmployees = (req, res) => {
 // Selects employee by employee number from the DB
 const getEmployeesById = (req, res) => {
     let sql = 'SELECT * FROM employees WHERE emp_no = ?';
-    sql = mysql.format(sql, [req.params.id])
+    sql = mysql.format(sql, [req.params.emp_no])
 
     pool.query(sql, (err, rows) => {
         if(err) return handleSQLError(res, err);
