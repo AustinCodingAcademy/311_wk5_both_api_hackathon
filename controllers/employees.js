@@ -67,7 +67,7 @@ const getIdWithDepartment = (req, res) => {
 const getIdWithSalary = (req, res) => {
  
     let sql = "SELECT * FROM ?? WHERE ?? = ?"
-    let replacements = ['salaries', 'emp_no', req.params.id]
+    let replacements = ['salaries', 'salary', req.params.id]
     sql = mysql.format(sql, replacements)
   
       pool.query(sql, (err, rows) => {
