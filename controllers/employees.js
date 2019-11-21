@@ -4,7 +4,7 @@ const { handleSQLError } = require('../mysql/error');
 
 //getEmployees
 exports.getEmployees = function getEmployees(req, res) {
-	pool.query('SELECT * FROM employees limit 100', (err, rows) => {
+	pool.query('SELECT * FROM employees limit 50', (err, rows) => {
 		if (err) return handleSQLError(res, err);
 		return res.json(rows);
 	});
@@ -12,16 +12,24 @@ exports.getEmployees = function getEmployees(req, res) {
 
 //getEmployeesById
 exports.getEmployeesById = function getEmployeesById(req, res) {
-	res.send('getting employees...');
+	let sql = 'SELECT * FROM employees WHERE emp_no = ?';
+	sql = mysql.format(sql, [req.params.id]);
+
+	pool.query(sql, (err, rows) => {
+		if (err) return handleSQLError(res, err);
+		return res.json(rows);
+	});
 };
 
 //getEmployeesByFirstName
 exports.getEmployeesByFirstName = function getEmployeesByFirstName(req, res) {
-	pool.query('SELECT * FROM employees where first_name = ?', (err, rows) => {
-		sql = mysql.format(sql, req.body.first_name);
+	let sql = 'SELECT * FROM employees where first_name = ?';
 
+	sql = mysql.format(sql, [req.params.first_name]);
+	pool.query(sql, (err, rows) => {
 		if (err) return handleSQLError(res, err);
 		return res.json(rows);
 	});
+
 	// res.send('firstname');
 };
