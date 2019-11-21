@@ -13,6 +13,11 @@ const getEmployees = (req, res) => {
   const getEmployeesById = (req, res) => {
     // SELECT USERS WHERE ID = <REQ PARAMS ID>
     let sql = "SELECT * FROM employees WHERE emp_no = ?"
+
+    //uncomment line below to test for error handling:
+    //let sql ="Select * from emplyees Where emp_no = ?"
+
+
     // WHAT GOES IN THE BRACKETS
     sql = mysql.format(sql, [req.params.emp_no])
   
