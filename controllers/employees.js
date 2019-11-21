@@ -1,18 +1,7 @@
 
-
-
-const getEmployees = (req, res) => {
-  res.send('getting employees...');
-}
-
-const getEmployeesByFirstName = (req, res) => {
-  res.send('getting employees...');
-}
-
-const getEmployeesById = (req, res) => {
-  res.send('getting employees...');
-}
-
+const getEmployees = require('./getEmployees')
+const getEmployeesByFirstName = require('./getEmployeesByFirstName')
+const getEmployeesById = require('./getEmployeesById')
 
 module.exports = {getEmployees, getEmployeesByFirstName, getEmployeesById};
 
