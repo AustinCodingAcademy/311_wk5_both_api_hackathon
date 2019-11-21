@@ -10,9 +10,9 @@ const getEmployees = (req, res) => {
   })
 }
 
-const getEmployeesById = (req, res) => {
-  let id = "SELECT * FROM employees WHERE id = ?"
-  let sql = mysql.format(id, [req.params.id])
+const getEmployeesByEmp_no = (req, res) => {
+  let emp_no = "SELECT * FROM employees WHERE emp_no = ?"
+  let sql = mysql.format(emp_no, [req.params.emp_no])
   pool.query(sql, (err, rows) => {
     if (err) return res.status(500).send('Something went wrong!');
     return res.json(rows);
@@ -28,5 +28,5 @@ const getEmployeesByFirstName = (req, res) => {
   })
 }
 
-module.exports = { getEmployees, getEmployeesById, getEmployeesByFirstName }
+module.exports = { getEmployees, getEmployeesByEmp_no, getEmployeesByFirstName }
 

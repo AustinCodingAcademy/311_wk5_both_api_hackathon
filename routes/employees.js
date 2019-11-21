@@ -4,7 +4,7 @@ const employeesController = require('../controllers/employees');
 
 router.get('/', employeesController.getEmployees);
 
-router.get('/:id', employeesController.getEmployeesById);
+router.get('/:emp_no', employeesController.getEmployeesByEmp_no);
 
 router.get('/:first_name', employeesController.getEmployeesByFirstName);
 
