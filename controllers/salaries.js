@@ -4,7 +4,7 @@ const sqlErrorHandler = require("../mysql/error");
 
 const getSalaries = (req, res) => {
   let sql = "SELECT * FROM ?? LIMIT ?";
-  let replacements = ["employees.salaries", 50]
+  let replacements = ["employees.salaries", 50];
   sql = mysql.format(sql, replacements);
 
   pool.query(sql, (err, results) => {
@@ -23,12 +23,12 @@ const getSalariesById = (req, res) => {
   pool.query(sql, (err, results) => {
     if (err) return sqlErrorHandler(res, err);
     return res.json(results);
-  }); 
+  });
 };
 
-const getSalariesRangeHigh = (req, res) => {
-  let sql = "SELECT * FROM ?? ORDER BY ?? DESC";
-  let replacements = ["employees.salaries", "salary"];
+let getTopSalaries = (req, res) => {
+  let sql = "SELECT * FROM ?? WHERE ?? = ?";
+  let replacements = ["employees.salaries", "emp_no", `${req.params.id}`];
   sql = mysql.format(sql, replacements);
 
   console.log(replacements);
@@ -39,4 +39,4 @@ const getSalariesRangeHigh = (req, res) => {
   });
 };
 
-module.exports = { getSalaries, getSalariesById, getSalariesRangeHigh };
+module.exports = { getSalaries, getSalariesById, getTopSalaries };
