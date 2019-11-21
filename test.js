@@ -24,6 +24,4 @@ let mockRequest = {
 //UNCOMMENT WHATEVER YOU ARE TRYING TO TEST
 //userController.getEmployees(mockRequest,mockResponse);
 userController.getEmployeesById(mockRequest,mockResponse);
-//userController.createUser(mockRequest,mockResponse);
-//userController.updateUserById(mockRequest,mockResponse);
-//userController.deleteUserByFirstName(mockRequest,mockResponse);
+
