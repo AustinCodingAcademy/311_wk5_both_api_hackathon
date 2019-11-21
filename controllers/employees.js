@@ -12,7 +12,6 @@ const getEmployees = (req, res) => {
 
 const getEmployeesByEmp_no = (req, res) => {
   let emp_no = "SELECT * FROM employees WHERE emp_no = ?"
-  console.log("employee by no")
   let sql = mysql.format(emp_no, [req.params.emp_no])
   pool.query(sql, (err, rows) => {
     if (err) return res.status(500).send('Something went wrong!');
@@ -22,7 +21,6 @@ const getEmployeesByEmp_no = (req, res) => {
 
 const getEmployeesByFirstName = (req, res) => {
   let name = "SELECT * FROM employees WHERE first_name = ?"
-  console.log("get employee by first name")
   let sql = mysql.format(name, [req.params.first_name])
   pool.query(sql, (err, rows) => {
     if (err) return res.status(500).send('Something went wrong!');
@@ -31,5 +29,16 @@ const getEmployeesByFirstName = (req, res) => {
   })
 }
 
-module.exports = { getEmployees, getEmployeesByEmp_no, getEmployeesByFirstName }
+const getEmployeesSalaries = (req, res) => {
+  let salaries = "SELECT * FROM employees JOIN salaries WHERE employees.emp_no = salaries.emp_no and employees.emp_no = ?"
+  console.log("get employees salaries")
+  let sql = mysql.format(salaries, [req.params.emp_no])
+  pool.query(sql, (err, rows) => {
+    if (err) return res.status(500).send('Something went wrong!');
+    
+    return res.json(rows);
+  })
+}
+
+module.exports = { getEmployees, getEmployeesByEmp_no, getEmployeesByFirstName, getEmployeesSalaries }
 

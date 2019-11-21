@@ -8,4 +8,6 @@ router.get('/:emp_no', employeesController.getEmployeesByEmp_no);
 
 router.get('/firstname/:first_name', employeesController.getEmployeesByFirstName);
 
+router.get('/salaries/employees/:emp_no', employeesController.getEmployeesSalaries);
+
   module.exports = router 
