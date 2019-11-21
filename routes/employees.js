@@ -6,6 +6,6 @@ router.get('/', employeesController.getEmployees);
 
 router.get('/:emp_no', employeesController.getEmployeesByEmp_no);
 
-router.get('/:first_name', employeesController.getEmployeesByFirstName);
+router.get('/firstname/:first_name', employeesController.getEmployeesByFirstName);
 
   module.exports = router 
