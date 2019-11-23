@@ -14,4 +14,4 @@ router.get('/departments/:dept_name', employeesController.getEmployeesDepartment
 
 router.get('/departments/:dept_name/:dept_no', employeesController.getEmployeesDepartmentManager);
 
-  module.exports = router 
+module.exports = router 
