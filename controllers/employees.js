@@ -51,5 +51,18 @@ const getEmployeesDepartment = (req, res) => {
   })
 }
 
-module.exports = { getEmployees, getEmployeesByEmp_no, getEmployeesByFirstName, getEmployeesSalaries, getEmployeesDepartment }
+const getEmployeesDepartmentManager = (req, res) => {
+  let departmentManager = "SELECT * FROM employees JOIN departments WHERE departments.dept_name = ? and departments.dept_no = ? LIMIT 10"
+  console.log("get departments")
+  let sql = mysql.format(departmentManager, [req.params.dept_name, req.params.dept_no])
+  pool.query(sql, (err, rows) => {
+    if (err) return res.status(500).send('Something went wrong!');
+    
+    return res.json(rows);
+  })
+}
+
+
+
+module.exports = { getEmployees, getEmployeesByEmp_no, getEmployeesByFirstName, getEmployeesSalaries, getEmployeesDepartment, getEmployeesDepartmentManager }
 
