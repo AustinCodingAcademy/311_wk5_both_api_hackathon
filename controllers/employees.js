@@ -29,16 +29,6 @@ const getEmployeesByFirstName = (req, res) => {
   })
 }
 
-const getEmployeesByFirstName = (req, res) => {
-  let name = "SELECT * FROM employees WHERE first_name = ?"
-  let sql = mysql.format(name, [req.params.first_name])
-  pool.query(sql, (err, rows) => {
-    if (err) return res.status(500).send('Something went wrong!');
-    
-    return res.json(rows);
-  })
-}
-
 const getEmployeesSalaries = (req, res) => {
   let salaries = "SELECT * FROM employees JOIN salaries WHERE employees.emp_no = salaries.emp_no and employees.emp_no = ?"
   console.log("get employees salaries")
@@ -60,6 +50,8 @@ const getEmployeesDepartment = (req, res) => {
     return res.json(rows);
   })
 }
+
+
 
 module.exports = { getEmployees, getEmployeesByEmp_no, getEmployeesByFirstName, getEmployeesSalaries, getEmployeesDepartment }
 
