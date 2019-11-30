@@ -14,7 +14,7 @@ let mockResponse = {
   }
 }
 let mockRequest = {
-  params: { id: 10050, first_name: 'John' },
+  params: { id: 10050, first_name: 'Karsten' },
   body: { first_name: "bogus", last_name: "user" }
 }
 
