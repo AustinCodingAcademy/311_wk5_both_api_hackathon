@@ -14,11 +14,11 @@ let mockResponse = {
   }
 }
 let mockRequest = {
-  params: { id: 1, first_name: 'John' },
+  params: { id: 10050, first_name: 'John' },
   body: { first_name: "bogus", last_name: "user" }
 }
 
 //UNCOMMENT WHATEVER YOU ARE TRYING TO TEST
-employeesController.getEmployees(mockRequest, mockResponse);
+// employeesController.getEmployees(mockRequest, mockResponse);
 // employeesController.getEmployeesByFirstName(mockRequest, mockResponse);
 // employeesController.getEmployeesById(mockRequest, mockResponse);

@@ -6,10 +6,9 @@ const getEmployeesById = (req, res) => {
   let sql = 'SELECT * FROM ?? WHERE ?? = ?'
   const replacements = ['employees', 'emp_no', req.params.id]
   sql = mysql.format(sql, replacements)
-  db.pool.query(sql, (err, results) => {
+  db.query(sql, (err, results) => {
     if (err) throw err;
     return res.status(204).json(results);
-  
   })
 }
 
