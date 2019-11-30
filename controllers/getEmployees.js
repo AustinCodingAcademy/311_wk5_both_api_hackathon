@@ -1,5 +1,6 @@
 const mysql = require('mysql')
 const db = require('../mysql/connection')
+const sqlErrorHandler = require("../mysql/error");
 const getEmployees = (req, res) => {
   // select all fields from employees table limit 50
   let sql = "SELECT * FROM ?? LIMIT ?";
