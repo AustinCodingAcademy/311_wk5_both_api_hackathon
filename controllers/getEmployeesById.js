@@ -1,6 +1,5 @@
 const mysql = require('mysql')
 const db = require('../mysql/connection')
-
 const getEmployeesById = (req, res) => {
   // select all fields from emp table where emp # matches id query param
   let sql = 'SELECT * FROM ?? WHERE ?? = ?'
