@@ -11,7 +11,7 @@ const getHighestPaidEmployees = (req, res) => {
     "salary",
     "employees.employees",
     "employees.salaries",
-    "employees.employees.emp_no",
+    "employees.emp_no",
     "employees.salaries.emp_no",
     "salary",
     10
