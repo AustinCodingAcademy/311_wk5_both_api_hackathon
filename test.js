@@ -22,6 +22,8 @@ let mockRequest = {
 //UNCOMMENT WHATEVER YOU ARE TRYING TO TEST
 //userController.getEmployees(mockRequest,mockResponse); 
 //userController.getEmployeesById(mockRequest,mockResponse);
-/userController.getEmployeesByFirstName(mockRequest,mockResponse);
+//userController.getEmployeesByFirstName(mockRequest,mockResponse);
 //userController.getIdWithSalary(mockRequest,mockResponse);
 //userController.getIdWithDepartment(mockRequest,mockResponse);
+userController.getDepartments(mockRequest,mockResponse);
+ //userController.getTitles(mockRequest,mockResponse);

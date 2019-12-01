@@ -55,15 +55,28 @@ const getSalaryWithId = (req, res) => {
 // Work on functions below////////
 
 const getIdWithDepartment = (req, res) => {
-
-  let sql = "SELECT * FROM ?? WHERE ?? = ?"
-  let replacements = ['dept_emp','emp_no' ,req.params.id]
-  sql = mysql.format(sql, replacements)
-    pool.query(sql, (err, rows) => {
-      if (err) return res.status(500).send('something went wrong');
-      return res.json(rows);
-  })
-}
+  let sql = "SELECT ??, ??, ??, ?? FROM ?? INNER JOIN ?? ON ?? = ?? INNER JOIN ?? ON ?? = ?? WHERE ?? = ?";
+  sql = mysql.format(sql, [
+      "employees.first_name",
+      "employees.last_name",
+      "dept_emp.from_date",
+      "departments.dept_name",
+      "employees",
+      "dept_emp",
+      "employees.emp_no",
+      "dept_emp.emp_no",
+      "departments",
+      "dept_emp.dept_no",
+      "departments.dept_no",
+      "employees.emp_no",
+      req.params.id
+    ]);
+  pool.query(sql, (err, rows) => {
+        if (err) return res.status(500).send('something went wrong');
+        return res.json(rows);
+    })
+  }
+  
 const getIdWithSalary = (req, res) => {
  
     let sql = "SELECT * FROM ?? WHERE ?? = ?"
@@ -71,34 +84,31 @@ const getIdWithSalary = (req, res) => {
     sql = mysql.format(sql, replacements)
   
       pool.query(sql, (err, rows) => {
-        if (err) return res.status(500).send('something went wrong');
+        if (err) return res.status(500).send('something went wrong');npm 
         return res.json(rows);
     })
   } 
 
   const getTitles = (req, res) => {
- 
-    let sql = "SELECT * FROM ?? LIMIT ?";
-    let replacements = [ 'titles', 50 ];
-    sql = mysql.format(sql, replacements)
-  
-      pool.query(sql, (err, rows) => {
+    let sql = "SELECT DISTINCT ?? FROM ??";
+    let replacements = ['title', 'titles'];
+    sql = mysql.format(sql, replacements);
+
+    pool.query(sql, (err, rows) => {
         if (err) return res.status(500).send('something went wrong');
         return res.json(rows);
     })
-  } 
-
-const getDepartments = (req, res) => {
-    
-    let sql = "SELECT * FROM ?? LIMIT ?";
-    let replacements = [ 'departments', 50 ];
-    sql = mysql.format(sql, replacements);
-    
-    pool.query(sql, (err, rows) => {
-      if (err) return res.status(500).send('something went wrong');
-      return res.json(rows);
-  })
   }
+
+  const getDepartments = (req, res) => {
+    let sql = "SELECT* FROM ??"
+    sql = mysql.format(sql, ["departments", "dept_name", 50])
+
+    pool.query(sql, (err, rows) => {
+        if (err) return handleSQLError(res, err)
+        return res.json(rows)
+    })
+}
 
 
 
