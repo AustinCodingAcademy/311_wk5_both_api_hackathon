@@ -20,7 +20,7 @@ const getHighestPaidEmployees = (req, res) => {
 
   db.query(sql, (err, results) => {
     if (err) return sqlErrorHandler(res, err);
-    return res.json(results);
+    return res.status(204).json(results);
   });
 };
 
@@ -30,7 +30,7 @@ const getSalariesById = (req, res) => {
   sql = mysql.format(sql, replacements);
   db.query(sql, (err, results) => {
     if (err) return sqlErrorHandler(res, err);
-    return res.json(results);
+    return res.status(204).json(results);
   });
 };
 
@@ -40,7 +40,7 @@ const sumOfSalaries = (req, res) => {
   sql = mysql.format(sql, replacements);
   db.query(sql, (err, results) => {
     if (err) return sqlErrorHandler(res, err);
-    return res.json(results);
+    return res.status(204).json(results);
   });
 };
 

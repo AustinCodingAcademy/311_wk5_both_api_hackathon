@@ -1,4 +1,5 @@
 let employeesController = require("./controllers/employees");
+let departmentsController = require('./controllers/departments')
 let mockResponse = {
   json: (body) => {
     console.log(body);
@@ -22,3 +23,7 @@ let mockRequest = {
 // employeesController.getEmployees(mockRequest, mockResponse);
 // employeesController.getEmployeesByFirstName(mockRequest, mockResponse);
 // employeesController.getEmployeesById(mockRequest, mockResponse);
+
+// departmentsController.getDepartments(mockRequest, mockResponse);
+// departmentsController.getDepartmentManagers(mockRequest, mockResponse);
+// departmentsController.getDepartmentEmployeeCount(mockRequest, mockResponse);
