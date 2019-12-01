@@ -10,7 +10,8 @@ class Connection {
                 host: '35.232.156.181',
                 user: 'root',
                 password: 'root',
-                database: 'employees'
+                database: 'employees',
+                port:3306
             })
             return this.pool;
         }

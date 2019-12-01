@@ -60,6 +60,17 @@ const getEmployeesDepartment = (req,res) => {
         return res.json(rows);
     });
 }
+
+const getOneSalaryById = (req,res) => {
+    let sql = 'SELECT salaries FROM employees WHERE ?? = ? limit 10'; 
+    let replace = [req.params.id]
+    sql = mysql.format(sql, replace);
+    
+    pool.query(sql, (err, rows) => {
+        if(err) return handleSQLError(res, err);
+        return res.json(rows);
+    });
+}
 module.exports = {
     getEmployees,
     getEmployeesById,
