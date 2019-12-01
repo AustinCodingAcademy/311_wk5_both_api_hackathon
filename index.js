@@ -5,6 +5,7 @@ const departmentsRouter = require('./routes/departments');
 const salariesRouter = require('./routes/salaries');
 const port = process.env.PORT || 4001
 
+
 app.use('/salaries', salariesRouter);
 app.use('/employees', employeesRouter);
 app.use('/departments', departmentsRouter);

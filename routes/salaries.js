@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 const salariesController = require('../controllers/salaries');
 
-router.get('/highpay', salariesController.getHighestPaidEmployees);
+router.get('/salary', getSalaries.getSalaries);
+
+// router.get('/highpay', salariesController.getHighestPaidEmployees);
 
 router.get('/sumsalary', salariesController.sumOfSalaries);
 
