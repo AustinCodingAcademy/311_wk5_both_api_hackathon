@@ -38,7 +38,7 @@ const getEmployeesByFirstName = (req, res) => {
 //Return the employee by id with salary information
 //There should be a property on the employee object called salary with a number value
 const getEmployeesSalary = (req, res) => {
-    let sql = 'SELECT salaries FROM employees WHERE emp_no = ? limit 10';
+    let sql = 'SELECT * FROM salaries  limit 10';
     let replace = [req.params.emp_no]
     sql = mysql.format(sql, replace);
     
@@ -51,7 +51,7 @@ const getEmployeesSalary = (req, res) => {
 //Return the employee with department information
 //There should be a property on the employee object called departments that is an array
 const getEmployeesDepartment = (req,res) => {
-    let sql = 'SELECT * FROM employees WHERE ?? = ? limit 10'; 
+    let sql = 'SELECT * FROM departments'; 
     let replace = [req.params.department]
     sql = mysql.format(sql, replace);
     
@@ -62,8 +62,8 @@ const getEmployeesDepartment = (req,res) => {
 }
 
 const getOneSalaryById = (req,res) => {
-    let sql = 'SELECT salaries FROM employees WHERE ?? = ? limit 10'; 
-    let replace = [req.params.id]
+    let sql = 'SELECT * FROM salaries WHERE emp_no = ? limit 1'; 
+    let replace = [req.params.emp_no]
     sql = mysql.format(sql, replace);
     
     pool.query(sql, (err, rows) => {

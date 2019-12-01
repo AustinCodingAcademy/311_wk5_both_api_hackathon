@@ -9,7 +9,7 @@ class Connection {
                 connectionLimit: 100,
                 host: '35.232.156.181',
                 user: 'root',
-                password: 'root',
+                password: '',
                 database: 'employees',
                 port:3306
             })
