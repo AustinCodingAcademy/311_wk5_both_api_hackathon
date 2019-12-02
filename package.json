@@ -4,10 +4,9 @@
   "description": "Read this ENTIRE document before beginning work.",
   "main": "index.js",
   "scripts": {
-    "re-testing": "echo \"Error: no test specified\" && exit 1" 
+    "re-testing": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./index.js"
   },
-   "start": "nodemon ./index.js",
-    
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AustinCodingAcademy/311_wk5_both_api_hackathon.git"
@@ -25,4 +24,3 @@
     "nodemon": "^1.19.4"
   }
 }
-
