@@ -42,8 +42,8 @@ const getSalariesById = (req, res) => {
 };
 
 const sumOfSalaries = (req, res) => {
-  let sql = "SELECT SUM(??) FROM ??";
-  let replacements = ["salary", 'employees.salaries'];
+  let sql = "SELECT SUM(??) AS ?? FROM ??";
+  let replacements = ["salary", 'totalSalaries', 'employees.salaries'];
   sql = mysql.format(sql, replacements);
   db.query(sql, (err, results) => {
     if (err) return sqlErrorHandler(res, err);
