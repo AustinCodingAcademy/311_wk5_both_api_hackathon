@@ -8,7 +8,7 @@ const getEmployeesById = (req, res) => {
   sql = mysql.format(sql, replacements)
   db.query(sql, (err, results) => {
     if (err) throw err;
-    return res.status(204).json(results);
+    return res.json(results);
   })
 }
 

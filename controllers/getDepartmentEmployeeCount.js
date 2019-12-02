@@ -8,7 +8,7 @@ const getDepartmentEmployeeCount = (req, res) => {
   sql = mysql.format(sql, replacements);
   db.query(sql, (err, results) => {
     if (err) return sqlErrorHandler(res, err);
-    return res.status(204).json(results);
+    return res.json(results);
   });
 }
 module.exports = getDepartmentEmployeeCount;

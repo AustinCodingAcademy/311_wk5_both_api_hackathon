@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const salariesController = require('../controllers/salaries');
 
-router.get('/salary', getSalaries.getSalaries);
+router.get('/', salariesController.getSalaries);
 
 // router.get('/highpay', salariesController.getHighestPaidEmployees);
 
