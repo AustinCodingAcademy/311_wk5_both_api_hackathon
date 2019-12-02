@@ -27,3 +27,8 @@ let mockRequest = {
 // departmentsController.getDepartments(mockRequest, mockResponse);
 // departmentsController.getDepartmentManagers(mockRequest, mockResponse);
 // departmentsController.getDepartmentEmployeeCount(mockRequest, mockResponse);
+
+
+// departmentsController.getSalaries(mockRequest, mockResponse);
+// departmentsController.getDepartmentEmployeeCount(mockRequest, mockResponse);
+
