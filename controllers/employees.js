@@ -11,7 +11,6 @@ const getEmployees = (req, res) => {
     });
     
 }
-
 // Selects employee by employee number from the DB
 const getEmployeesById = (req, res) => {
     let sql = 'SELECT * FROM employees WHERE emp_no = ?';
@@ -47,7 +46,6 @@ const getEmployeesSalary = (req, res) => {
         return res.json(rows);
     });
 }
-
 //Return the employee with department information
 //There should be a property on the employee object called departments that is an array
 const getEmployeesDepartment = (req,res) => {
