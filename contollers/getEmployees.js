@@ -1,11 +1,5 @@
 const mysql = require('../node_modules/mysql')
 
-var con = mysql.createConnection({
-  host: "35.223.66.40",
-  user: "root",
-  password: "coding",
-  database: "admin"
-});
 
     // function getEmployees(request,response) {
       // return response.json(employees);
