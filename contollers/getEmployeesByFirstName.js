@@ -11,7 +11,7 @@ const getEmployeesByFirstName = (req, res) => {
   sql = mysql.format(sql, [req.params.id])
   pool.query(sql, (err, rows) => {
     if (err) return handleSQLError(res, err)
-    return res.json(res);
+    return res.json(firstName);
   })
 }
 

@@ -17,7 +17,7 @@ const getEmployees = (req, res) => {
   // SELECT ALL USERS
   pool.query("SELECT * FROM employees LIMIT 50", (err, rows) => {
     if (err) return handleSQLError(res, err)
-    return res.json(res);
+    return res.json(employees);
   })
 }
 
