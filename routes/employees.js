@@ -9,10 +9,10 @@ router.get("/employees/", (req,res) => {
 })
 
 router.get("/employees/:id", (req,res) => {
-	res.send("getting employees...")
+	res.send("getting employees ID...")
 })
 
 router.get("/employees/firstname/:first_name", (req,res) => {
-	res.send("getting employees...")
+	res.send("getting employees first name...")
 })
 module.exports = router;
