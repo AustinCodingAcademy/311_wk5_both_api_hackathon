@@ -8,7 +8,7 @@ var con = mysql.createConnection({
 });
 
 
-// getEmployees
+// getEmployees first 50 users
 con.connect(function(err) {
   if (err) throw err;
   con.query("select * from employees where emp_no < 10051", function (err, result, fields) {
