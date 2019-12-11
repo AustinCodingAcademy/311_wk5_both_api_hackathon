@@ -4,6 +4,7 @@
 const mysql = require('../node_modules/mysql')
 
 
+
 const getEmployeesById = (req, res) => {
   // SELECT USERS WHERE ID = <REQ PARAMS ID>
   let sql = "SELECT * FROM users WHERE id = ?"
