@@ -1,6 +1,4 @@
 const mysql = require('../node_modules/mysql')
-// const employees = require('../node_modules/mysql/');
-
 
 var con = mysql.createConnection({
   host: "35.223.66.40",
