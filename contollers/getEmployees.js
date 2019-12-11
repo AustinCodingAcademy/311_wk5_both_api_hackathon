@@ -7,20 +7,19 @@ var con = mysql.createConnection({
   database: "admin"
 });
 
-
+    // function getEmployees(request,response) {
+      // return response.json(employees);
+        // }
+        
+        
 // getEmployees first 50 users
-con.connect(function(err) {
-  if (err) throw err;
-  con.query("select * from employees where emp_no < 10051", function (err, result, fields) {
-    if (err) throw err;
-    console.log(result);
-  });
-});
-
-// function getEmployees(request,response) {
-//   // let allEmployees = 
-//   return response.json(employees);
-// }
+const getEmployees = (req, res) => {
+  // SELECT ALL USERS
+  pool.query("SELECT * FROM employees LIMIT 50", (err, rows) => {
+    if (err) return handleSQLError(res, err)
+    return res.json(res);
+  })
+}
 
 
 module.exports = {getEmployees};
