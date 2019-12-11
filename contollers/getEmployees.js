@@ -1,5 +1,5 @@
+const pool = require('../MySQL/connection')
 const mysql = require('../node_modules/mysql')
-
 
     // function getEmployees(request,response) {
       // return response.json(employees);

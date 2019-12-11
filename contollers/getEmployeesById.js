@@ -1,6 +1,7 @@
 // function getEmployeesById(request,response) {
 //   return response.json(employeeId);
 // }
+const pool = require('../MySQL/connection')
 const mysql = require('../node_modules/mysql')
 
 

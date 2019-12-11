@@ -6,7 +6,7 @@ const getEmployeesByFirstName = require('../contollers/getEmployeesByFirstName')
 
 router.get("/employees/", (req,res) => {
 	getEmployees.getEmployees
-	res.send("getting employees...")
+	res.send(getEmployees)
 })
 
 router.get("/employees/:id", (req,res) => {
