@@ -12,3 +12,5 @@ const getEmployeesById = function show(req, res) {
     return res.json(results);
   })
 }
+
+module.exports = {getEmployeesById}
