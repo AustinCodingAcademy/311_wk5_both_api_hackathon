@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
 const employeesRoutes = require('./routes/employees.js');
-const employeesControllers = require('./controllers/employees.js');
 
 const port = process.env.PORT || 4001
 
