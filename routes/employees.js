@@ -2,7 +2,7 @@ const router = express.Router()
 
 const employeesController = require('../controllers/employees.js')
 
-router.get('/users', employeesController.getEmployees)
+router.get('/employees', employeesController.getEmployees)
 
 router.get('/, /:id', employeesController.getEmployeesById)
 
