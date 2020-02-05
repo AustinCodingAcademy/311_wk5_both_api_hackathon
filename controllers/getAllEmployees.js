@@ -1,7 +1,12 @@
+const mysql = require('mysql')
+const pool = require('../mysql/connection')
+const { handleSQLError } = require('../sql/error')
 
-
-exports.getEmployees = function list(req, res) {
-  return res.json(employees);
+const getEmployees = (req, res) => {
+  pool.query("SELECT * FROM users", (err, results) => {
+    if (err) return handleSQLError(res, err)
+    return res.json(results);
+  })
 }
 
 exports.getEmployeesById = function show(req, res) {
