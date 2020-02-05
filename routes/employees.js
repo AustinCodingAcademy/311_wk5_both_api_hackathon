@@ -1,7 +1,11 @@
 const router = express.Router()
 
-router.get('/, /:id', res.send(`getting employees`))
+const employeesController = require('../controllers/employees.js')
 
-router.get('firstname/:first_name', res.send(`getting employees`))
+router.get('/users', employeesController.getEmployees)
+
+router.get('/, /:id', employeesController.getEmployeesById)
+
+router.get('firstname/:first_name', employeesController.getEmployeesByFirstName)
 
 module.exports = router;
