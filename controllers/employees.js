@@ -30,6 +30,20 @@ const getEmployeesByFirstName = (req, res) => {
   })
 };
 
+const getEmployeesBySalary = (req, res) => {
+  pool.query("SELECT employees.first_name, employees.last_name, salaries.salary FROM employees LEFT INNER JOIN salaries ON employees.emp_no=salaries.emp_no ", (err, rows) => {
+    if (err) return handleSQLError(res, err)
+    return res.json(rows);
+  })
+}
+
+// SELECT
+// users.first_name,
+// usersContact.email
+// FROM users
+// JOIN usersContact
+// WHERE
+// users.id = usersContact.user_id;
 
 
 
