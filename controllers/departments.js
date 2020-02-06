@@ -24,8 +24,7 @@ const getEmployeesByDepartmentName = ('/:name', (req, res) => {
   FROM employees
     INNER JOIN dept_emp ON employees.emp_no = dept_emp.emp_no
     INNER JOIN departments ON dept_emp.dept_no = departments.dept_no
-  WHERE departments.dept_name = ?
-  LIMIT 50`;
+  WHERE departments.dept_name = ?`;
 
   sql = mysql.format(sql, req.params.name)
 
@@ -45,8 +44,7 @@ const getSalariesByDepartment = ('/:name', (req, res) => {
   FROM salaries
     INNER JOIN dept_emp ON salaries.emp_no = dept_emp.emp_no
     INNER JOIN departments ON dept_emp.dept_no = departments.dept_no
-  WHERE departments.dept_name = ?
-  LIMIT 50`;
+  WHERE departments.dept_name = ?`;
 
   sql = mysql.format(sql, req.params.name)
 
