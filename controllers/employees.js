@@ -36,6 +36,20 @@ const getEmployeesBySalary = (req, res) => {
     return res.json(rows);
   })
 }
+const getEmployeesByTitle= (req, res) => {
+  pool.query("SELECT employees.first_name, employees.last_name, titles.title FROM employees LEFT INNER JOIN titles ON employees.emp_no=titles.emp_no ", (err, rows) => {
+    if (err) return handleSQLError(res, err)
+    return res.json(rows);
+  })
+}
+const getEmployeesByDept= (req, res) => {
+  pool.query("SELECT employees.first_name, employees.last_name, departments.dept_name FROM employees LEFT JOIN dept_emp ON employees.emp_no=dept_emp.emp_no JOIN departments ON departments.dept_no=dept_emp.dept_no", (err, rows) => {
+    if (err) return handleSQLError(res, err)
+    return res.json(rows);
+  })
+}
+
+
 
 // SELECT
 // users.first_name,
@@ -50,4 +64,4 @@ const getEmployeesBySalary = (req, res) => {
 
 
 
-module.exports = { getEmployees,getEmployeesById, getEmployeesByFirstName }
+module.exports = { getEmployees,getEmployeesById, getEmployeesByFirstName, getEmployeesBySalary, getEmployeesByTitle, getEmployeesByDept }
