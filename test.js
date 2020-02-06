@@ -1,4 +1,5 @@
-let employeesController = require("./controllers/employees");
+const employeesController = require("./controllers/employees");
+const departmentsController = require('./controllers/departments')
 
 let mockResponse = {
     json:(body)=>{
@@ -23,8 +24,6 @@ let mockRequest = {
 //UNCOMMENT WHATEVER YOU ARE TRYING TO TEST
 // employeesController.getEmployees(mockRequest,mockResponse);
 // employeesController.getEmployeesById(mockRequest,mockResponse);
-employeesController.getEmployeesByFirstName(mockRequest,mockResponse);
-// userController.getUserById(mockRequest,mockResponse);
-// userController.createUser(mockRequest,mockResponse);
-// userController.updateUserById(mockRequest,mockResponse);
-// userController.deleteUserByFirstName(mockRequest,mockResponse);
+// employeesController.getEmployeesByFirstName(mockRequest,mockResponse);
+// departmentsController.getDept(mockRequest,mockResponse);
+departmentsController.getEmployeesByDepartmentNum(mockRequest,mockResponse);
