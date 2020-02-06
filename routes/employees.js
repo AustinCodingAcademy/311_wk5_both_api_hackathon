@@ -14,6 +14,10 @@ router.get('/titles/:title', employees.getEmployeesByTitle)
 
 router.get('/departments/:dept_name', employees.getEmployeesByDept)
 
+router.get('/departments/:dept_name', employees.getEmployeesByDeptName)
 
+router.get('/salaries/:/salary75K', employees.getEmployeesBySalary75KAbove)
+
+router.get('/titles/:title/SeniorEngineer', employees.getEmployeesSeniorEngineer)
 
 module.exports = router;

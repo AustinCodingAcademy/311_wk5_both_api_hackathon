@@ -49,19 +49,28 @@ const getEmployeesByDept= (req, res) => {
   })
 }
 
+const getEmployeesBySalary75KAbove= (req, res) => {
+  pool.query("SELECT employees.first_name, employees.last_name, salaries.salary FROM employees JOIN salaries WHERE employees.emp_no = salaries.emp_no HAVING salaries.salary > 75000", (err, rows) => {
+    if(err) return handleSQLError(res,err)
+    return res.json(rows);
+  })
+ }
 
 
-// SELECT
-// users.first_name,
-// usersContact.email
-// FROM users
-// JOIN usersContact
-// WHERE
-// users.id = usersContact.user_id;
+const getEmployeesByDeptName = (req,res) => {
+pool.query("SELECT employees.first_name, employees.last_name, dept_emp.dept_no, departments.dept_name FROM employees JOIN dept_emp, departments WHERE employees.emp_no = dept_emp.emp_no and dept_emp.dept_no =departments.dept_no", (err, rows) => {
+ if(err) return handleSQLError(res,err)
+ return res.json(rows);
+})
+}
+
+const getEmployeesSeniorEngineer = (req,res) => {
+pool.query("SELECT employees.first_name, employees.last_name, titles.title FROM employees JOIN titles WHERE employees.emp_no = titles.emp_no HAVING titles.title = 'Senior Engineer'", (err,rows) => {
+  if(err) return handleSQLError(res,err)
+  return res.json(rows);
+})
+}
 
 
 
-
-
-
-module.exports = { getEmployees,getEmployeesById, getEmployeesByFirstName, getEmployeesBySalary, getEmployeesByTitle, getEmployeesByDept }
+module.exports = { getEmployees,getEmployeesById, getEmployeesByFirstName, getEmployeesBySalary, getEmployeesByTitle, getEmployeesByDept, getEmployeesByDeptName, getEmployeesBySalary75KAbove, getEmployeesSeniorEngineer }
