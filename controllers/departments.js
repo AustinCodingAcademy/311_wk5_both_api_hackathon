@@ -16,11 +16,11 @@ const getEmployeesByDepartmentName = ('/:name', (req, res) => {
   console.log(req.params)
   let sql = `
   SELECT 
-    employees.emp_no, 
-    employees.first_name, 
-    employees.last_name,
-    departments.dept_no,
-    departments.dept_name
+    employees.emp_no AS 'Employee #', 
+    employees.first_name AS 'First Name', 
+    employees.last_name AS 'Last Name',
+    departments.dept_no AS 'Department Number',
+    departments.dept_name AS 'Department Name'
   FROM employees
     INNER JOIN dept_emp ON employees.emp_no = dept_emp.emp_no
     INNER JOIN departments ON dept_emp.dept_no = departments.dept_no
@@ -38,13 +38,17 @@ const getEmployeesByDepartmentName = ('/:name', (req, res) => {
 const getSalariesByDepartment = ('/:name', (req, res) => {
   let sql = `
   SELECT
-    salaries.salary,
-    departments.dept_no,
-    departments.dept_name
+    FORMAT(AVG(salaries.salary), 2) AS 'Average Salary',
+    titles.title AS 'Title',
+    departments.dept_no AS 'Department Number',
+    departments.dept_name AS 'Department Name'
   FROM salaries
-    INNER JOIN dept_emp ON salaries.emp_no = dept_emp.emp_no
+  INNER JOIN titles ON salaries.emp_no = titles.emp_no
+    INNER JOIN dept_emp ON titles.emp_no = dept_emp.emp_no
     INNER JOIN departments ON dept_emp.dept_no = departments.dept_no
-  WHERE departments.dept_name = ?`;
+  WHERE departments.dept_name = 'finance'
+  GROUP BY title
+  ORDER BY 'Average Salary' DESC`;
 
   sql = mysql.format(sql, req.params.name)
 
