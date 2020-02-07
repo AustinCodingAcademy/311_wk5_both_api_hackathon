@@ -8,8 +8,8 @@ const employeeByIdController = require('../controllers/getEmployeesById')
 
 router.get('/employees', allEmployeesController.getEmployees)
 
-router.get('/:id', employeeByIdController.getEmployeesById)
+router.get('/employees/:id', employeeByIdController.getEmployeesById)
 
-router.get('firstname/:first_name', employeeByFirstNameController.getEmployeesByFirstName)
+router.get('/employees/first_name/:first_name', employeeByFirstNameController.getEmployeesByFirstName)
 
 module.exports = router;

@@ -1,9 +1,9 @@
 const mysql = require('mysql')
 const pool = require('../mysql/connection')
-const { handleSQLError } = require('../sql/error')
+const { handleSQLError } = require('../mysql/errors')
 
 const getSalariesById = (req, res) => {
-  let sql = "SELECT ?? FROM ?? WHERE ? = ?"
+  let sql = "SELECT ?? FROM ?? WHERE ?? = ?"
    
   sql = mysql.format(sql, ['*', 'salaries', 'emp_no', req.params.id])
   pool.query(sql, (err, results) => {

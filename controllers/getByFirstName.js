@@ -3,14 +3,15 @@ const pool = require('../mysql/connection')
 const { handleSQLError } = require('../mysql/errors')
 
 const getEmployeesByFirstName = (req, res) => {
-let sql = "SELECT * FROM ?? WHERE ?? = ?"
-const replacements = ['employees', 'first_name', req.body.first_name ]
+  let sql = "SELECT * FROM ?? WHERE ?? = ?"
 
-sql = mysql.format(sql, replacements)
+  const replacements = ['employees', 'first_name', req.params.first_name]
 
-pool.query(sql, (err, results) => {
-  if (err) return handleSQLError(res, err)
-  return res.json(results);
+  sql = mysql.format(sql, replacements)
+
+  pool.query(sql, (err, results) => {
+    if (err) return handleSQLError(res, err)
+    return res.json(results);
 })
 }
 
