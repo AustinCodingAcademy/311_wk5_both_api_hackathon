@@ -3,8 +3,7 @@ const mysql = require('mysql');
 
 const getEmployees = ((req, res) => {
   pool.query("SELECT * FROM employees limit 50", (err, rows) => {
-    // if (err) return handleSQLError(res, err)
-    console.log(err);
+    if (err) return handleSQLError(res, err)
     return res.json(rows);
   })
 })
