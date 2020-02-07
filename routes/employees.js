@@ -1,16 +1,7 @@
 var express = require('express')
 var router = express.Router()
 const employeesControllers = require ('../controllers/employees');
-const msql = require('/mysql')
-const pool = require('../mysql/connection')
-
-pool.query('SELECT * FROM employees', (err, rows) => {
-  if (err) {
-  console.log({ 'message': 'Error occurred: ' + err })
-  return res.status(500).send('Uh oh . . .')
-  }
-  res.json(rows)
-  });
+// const msql = require('/mysql')
 
 router.get('/employees', employeesControllers.getEmployees)
 
