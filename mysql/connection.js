@@ -9,7 +9,7 @@ connectionLimit: 100,
 host: '35.192.130.36',
 user: 'root',
 password: 'Tillery2!',
-database: 'admin'
+database: 'employees'
 })
 
 return this.pool
