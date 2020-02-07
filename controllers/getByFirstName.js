@@ -1,6 +1,6 @@
 const mysql = require('mysql')
 const pool = require('../mysql/connection')
-const { handleSQLError } = require('../sql/error')
+const { handleSQLError } = require('../mysql/errors')
 
 const getEmployeesByFirstName = (req, res) => {
 let sql = "SELECT * FROM ?? WHERE ?? = ?"
