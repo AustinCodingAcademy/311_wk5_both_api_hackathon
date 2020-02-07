@@ -8,6 +8,8 @@ app.use('/employees', require('./routes/employees'));
 
 app.use('/departments', require('./routes/departments'));
 
+app.use('/salaries', require('./routes/salaries'))
+
 // app.use((req, res) => {
 //   res.send(`Status ${res.statusCode}. Page not found.`)
 // })

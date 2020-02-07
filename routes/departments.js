@@ -11,7 +11,7 @@ router.get('/', departmentsController.getDept)
 router.get('/:name', departmentsController.getEmployeesByDepartmentName)
 
 // // Get salaries by first name
-router.get('/salaries/:name', departmentsController.getSalariesByDepartment)
+// router.get('/salaries/:name', departmentsController.getSalariesByDepartment)
 
 
 
