@@ -60,14 +60,11 @@ const getEmployeesBySalary75KAbove= (req, res) => {
   })
  }
 
-<<<<<<< HEAD
-const getEmployeesByDeptName = (req,res) => {
-pool.query("SELECT employees.first_name, employees.last_name, dept_emp.dept_no, departments.dept_name FROM employees JOIN dept_emp, departments WHERE employees.emp_no = dept_emp.emp_no and dept_emp.dept_no =departments.dept_no", (err, rows) => {
-=======
+
 
 const getEmployeesByDeptNameWithNumber = (req,res) => {
 pool.query("SELECT employees.first_name, employees.last_name, dept_emp.dept_no, departments.dept_name FROM employees JOIN dept_emp, departments WHERE employees.emp_no = dept_emp.emp_no and dept_emp.dept_no =departments.dept_no LIMIT 100", (err, rows) => {
->>>>>>> 445c52335f86f4c8a0a9b59952d9971b5e42bc16
+
  if(err) return handleSQLError(res,err)
  return res.json(rows);
 })
@@ -81,9 +78,5 @@ pool.query("SELECT employees.first_name, employees.last_name, titles.title FROM 
 }
 
 
-module.exports = { getEmployees,getEmployeesById, getEmployeesByFirstName, getEmployeesBySalary, getEmployeesByTitle, getEmployeesByDept, getEmployeesByDeptName, getEmployeesBySalary75KAbove, getEmployeesSeniorEngineer }
-
-<<<<<<< HEAD
-=======
 module.exports = { getEmployees,getEmployeesById, getEmployeesByFirstName, getEmployeesBySalary, getEmployeesByTitle, getEmployeesByDept, getEmployeesByDeptNameWithNumber, getEmployeesBySalary75KAbove, getEmployeesSeniorEngineer }
->>>>>>> 445c52335f86f4c8a0a9b59952d9971b5e42bc16
+
