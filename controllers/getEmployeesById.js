@@ -1,6 +1,6 @@
 const mysql = require('mysql')
 const pool = require('../mysql/connection')
-const { handleSQLError } = require('../sql/error')
+const { handleSQLError } = require('../mysql/errors')
 
 const getEmployeesById = function show(req, res) {
   // SELECT USERS WHERE ID = <REQ PARAMS ID>

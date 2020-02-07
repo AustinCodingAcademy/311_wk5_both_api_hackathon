@@ -4,10 +4,9 @@ const employeesRoutes = require('./routes/employees.js');
 
 const port = process.env.PORT || 4001
 
-app.use(require('./routes/employees.js'));
-app.use(employeesRoutes);
-app.use(require('./controllers/employees.js'));
-app.use(employeesControllers);
+
+app.use('/employees', employeesRoutes);
+
 
 app.get('/', function(req, res) {
   res.send(`Welcome to our API`)
