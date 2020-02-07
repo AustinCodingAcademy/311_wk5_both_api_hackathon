@@ -50,7 +50,6 @@ const getEmployeesByDept= (req, res) => {
 }
 
 
-
 // SELECT
 // users.first_name,
 // usersContact.email
@@ -58,10 +57,6 @@ const getEmployeesByDept= (req, res) => {
 // JOIN usersContact
 // WHERE
 // users.id = usersContact.user_id;
-
-
-
-
 
 
 module.exports = { getEmployees,getEmployeesById, getEmployeesByFirstName, getEmployeesBySalary, getEmployeesByTitle, getEmployeesByDept }
