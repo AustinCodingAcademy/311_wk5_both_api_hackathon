@@ -2,14 +2,21 @@ const pool = require('../mysql/connection');
 const mysql = require('mysql');
 
 const getEmployees = ((req, res) => {
-  pool.query("SELECT * FROM employees limit 50", (err, rows) => {
+  let sql = `
+  SELECT * 
+  FROM employees 
+  LIMIT 50`;
+  pool.query(sql, (err, rows) => {
     if (err) return handleSQLError(res, err)
     return res.json(rows);
   })
 })
 
 const getEmployeesById = ((req, res) => {
-  let sql = "SELECT * FROM employees WHERE emp_no = ?"
+  let sql = `
+  SELECT * 
+  FROM employees 
+  WHERE emp_no = ?`;
   // WHAT GOES IN THE BRACKETS
   sql = mysql.format(sql, [req.params.id])
   pool.query(sql, (err, rows) => {
@@ -20,7 +27,10 @@ const getEmployeesById = ((req, res) => {
 
 const getEmployeesByFirstName = ((req, res) => {
   // res.send("getting employees..." )
-  let sql = "SELECT * FROM employees WHERE first_name = ?"
+  let sql = `
+  SELECT * 
+  FROM employees 
+  WHERE first_name = ?`;
   // WHAT GOES IN THE BRACKETS
   sql = mysql.format(sql, [req.params.first_name])
   pool.query(sql, (err, rows) => {
@@ -28,7 +38,6 @@ const getEmployeesByFirstName = ((req, res) => {
     return res.json(rows);
   })
 })
-
 
 // Gets all employees (limit 50) by typing in a department, i.e. "Development" or "Finance"
 const getEmployeesByDepartment = ((req, res) => {
@@ -47,6 +56,21 @@ const getEmployeesByDepartment = ((req, res) => {
   })
 })
 
+
+const getEmployeesSalaries = ((req, res) => {
+  let sql = `
+  SELECT first_name, last_name, salary, from_date, to_date 
+  FROM employees 
+  JOIN salaries 
+  ON employees.emp_no = salaries.emp_no 
+  LIMIT 50`;
+  // WHAT GOES IN THE BRACKETS
+  sql = mysql.format(sql, [req.body])
+  pool.query(sql, (err, rows) => {
+    if (err) return handleSQLError(res, err)
+    return res.json(rows);
+    })
+  })
 
 // Gets all the employees (limit 50 again) by typing in a job title, i.e. "Engineer" or "Staff"
 const getEmployeesByJobTitle = ((req, res) => {
@@ -69,5 +93,6 @@ module.exports = {
   getEmployeesById,
   getEmployeesByFirstName,
   getEmployeesByDepartment,
+  getEmployeesSalaries,
   getEmployeesByJobTitle
 }

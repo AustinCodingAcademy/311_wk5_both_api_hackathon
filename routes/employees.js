@@ -12,6 +12,8 @@ router.get('/employees/firstname/:first_name', employeesControllers.getEmployees
 // The two new routes I created for the new functions . . .
 router.get('/employees/department/:department', employeesControllers.getEmployeesByDepartment)
 
+router.get('/employees/salaries/salary', employeesControllers.getEmployeesSalaries)
+
 router.get('/employees/titles/:title', employeesControllers.getEmployeesByJobTitle)
 
 
