@@ -3,6 +3,7 @@ const router = express.Router();
 
 const salariesController = require('../controllers/salaries')
 
+
 router.get('/:name', salariesController.getSalariesByDepartment)
 
 router.get('/employees/:id', salariesController.getSalarieByEmployeeId)

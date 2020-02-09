@@ -14,8 +14,4 @@ router.get('/:name', departmentsController.getEmployeesByDepartmentName)
 // router.get('/salaries/:name', departmentsController.getSalariesByDepartment)
 
 
-
-
-
-
 module.exports = router;
