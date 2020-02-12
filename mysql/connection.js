@@ -8,7 +8,7 @@ this.pool = mysql.createPool({
 connectionLimit: 100,
 host: '35.192.130.36',
 user: 'root',
-password: 'Tillery2!',
+password: 'xxxxxxxxx',
 database: 'employees'
 })
 
