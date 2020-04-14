@@ -8,7 +8,7 @@ const controller = require("../controllers/salaries");
 // get all comments
 router.get("/salaries", controller.getAllSalaries);
 
-router.get("/employees/:first_name", controller.getSalariesByFirstName);
+router.get("/salaries/:first_name", controller.getSalariesByFirstName);
 
 router.get("/salaries/:emp_no", controller.getSalaryByID);
 
