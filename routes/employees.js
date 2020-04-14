@@ -6,7 +6,7 @@ const router = express.Router();
 const controller = require('../controllers/employees');
 
 // get all comments
-router.get('/employees', controller.list);
+router.get('/employees', controller.getAllEmployees);
 
 
 // make the router available to the API

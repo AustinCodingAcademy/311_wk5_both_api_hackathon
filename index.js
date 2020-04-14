@@ -10,7 +10,7 @@ app.use(express.static('public'));
 app.use(require('./routes/employees'));
 
 // decide which port to use
-const port = process.env.PORT || 4001;
+const port = process.env.PORT || 4000;
 
 // start the server!
 app.listen(port, () => {
