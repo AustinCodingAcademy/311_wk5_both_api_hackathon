@@ -9,8 +9,10 @@ app.use(express.static("public"));
 // set our paths for the routers
 app.use(require("./routes/employees"));
 
+app.use(require("./routes/salaries"));
+
 // decide which port to use
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 4002;
 
 // start the server!
 app.listen(port, () => {

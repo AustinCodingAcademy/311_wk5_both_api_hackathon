@@ -16,8 +16,18 @@ const getAllEmployees = (req, res) => {
 
 // Get employees by first name
 const getEmployeesByFirstName = (req, res) => {
-	//set sql query
-	let sql = "SELECT * FROM employees WHERE first_name = req.params.first_name";
+	// set sql statement
+	let sql = "SELECT * FROM ?? WHERE ?? = ?";
+	// set parameters for query
+	const replacements = [
+		"employees",
+		"first_name",
+		req.params.first_name
+	]
+
+	// add the replacements to the query
+	sql = mysql.format(sql, replacements)
+	
 	pool.query(sql, (err, rows) => {
 		if (err) return handleSQLError(res, err);
 		return res.json(rows);

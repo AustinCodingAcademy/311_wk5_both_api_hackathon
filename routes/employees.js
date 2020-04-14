@@ -4,7 +4,6 @@ const router = express.Router();
 
 // set access to the controller we'll use
 const controller = require("../controllers/employees");
-const controller = require("../controllers/getEmpolyeesByFirstName");
 
 // get all comments
 router.get("/employees", controller.getAllEmployees);
