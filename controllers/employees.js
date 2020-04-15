@@ -40,8 +40,8 @@ const getEmployeesByid = (req, res) => {
 	// set parameters for query
 	const replacements = [
 		"employees",
-		"id",
-		req.params.id
+		"emp_no",
+		req.params.emp_no
 	]
 
 	// add the replacements to the query
