@@ -11,6 +11,8 @@ app.use(require("./routes/employees"));
 
 app.use(require("./routes/salaries"));
 
+app.use(require("./routes/departments"));
+
 // decide which port to use
 const port = process.env.PORT || 4002;
 
