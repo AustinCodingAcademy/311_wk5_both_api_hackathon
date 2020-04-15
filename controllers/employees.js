@@ -33,6 +33,25 @@ const getEmployeesByFirstName = (req, res) => {
 		return res.json(rows);
 	});
 };
+//Get employees by id
+const getEmployeesByid = (req, res) => {
+	// set sql statement
+	let sql = "SELECT ?? FROM ?? WHERE ?? = ?";
+	// set parameters for query
+	const replacements = [
+		'*',
+		'employees',
+		'emp_no', 
+		req.params.emp_no]
+
+	// add the replacements to the query
+	sql = mysql.format(sql, replacements)
+	
+	pool.query(sql, (err, rows) => {
+		if (err) return handleSQLError(res, err);
+		return res.json(rows);
+	});
+};
 
 //export the functions we just set up
-module.exports = { getAllEmployees, getEmployeesByFirstName };
+module.exports = { getAllEmployees, getEmployeesByFirstName, getEmployeesByid  };
