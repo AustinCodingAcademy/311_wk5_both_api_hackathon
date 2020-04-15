@@ -36,13 +36,13 @@ const getEmployeesByFirstName = (req, res) => {
 //Get employees by id
 const getEmployeesByid = (req, res) => {
 	// set sql statement
-	let sql = "SELECT * FROM ?? WHERE ?? = ?";
+	let sql = "SELECT ?? FROM ?? WHERE ?? = ?";
 	// set parameters for query
 	const replacements = [
-		"employees",
-		"emp_no",
-		req.params.emp_no
-	]
+		'*',
+		'employees',
+		'emp_no', 
+		req.params.emp_no]
 
 	// add the replacements to the query
 	sql = mysql.format(sql, replacements)

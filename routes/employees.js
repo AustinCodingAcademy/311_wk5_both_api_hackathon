@@ -10,7 +10,7 @@ router.get("/employees", controller.getAllEmployees);
 
 router.get("/employees/:first_name", controller.getEmployeesByFirstName);
 //josh
-router.get("/employees/:id", controller.getEmployeesByid);
+router.get("/employees/:emp_no", controller.getEmployeesByid);
 
 // make the router available to the API
 module.exports = router;
