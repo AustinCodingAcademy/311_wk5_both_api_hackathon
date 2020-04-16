@@ -4,7 +4,7 @@ const { handleSQLError } = require('../mysql/error')
 
 const getEmployeesById = (req, res) => {
   let sql = "SELECT ?? FROM ?? WHERE ?? = ?"
-  sql = mysql.format(sql, ['*', 'users', 'id', req.params.id])
+  sql = mysql.format(sql, ['*', 'employees', 'emp_no', req.params.id])
 
   pool.query(sql, (err, rows) => {
     if (err) return handleSQLError(res, err)
@@ -12,6 +12,4 @@ const getEmployeesById = (req, res) => {
   })
 }
 
-  module.exports = {
-    getEmployeesById
-  }
+  module.exports = { getEmployeesById };

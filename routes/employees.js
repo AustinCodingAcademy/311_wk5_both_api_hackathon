@@ -26,8 +26,8 @@ const router = express.Router()
 
 
 router.get('/', getEmployeesController.getEmployees)
-router.get('/:first_name', getEmployeesByFirstNameController.getEmployeesByFirstName)
 router.get('/:id', getEmployeesByIdController.getEmployeesById)
+router.get('/:first_name', getEmployeesByFirstNameController.getEmployeesByFirstName)
 
 
 module.exports = router
