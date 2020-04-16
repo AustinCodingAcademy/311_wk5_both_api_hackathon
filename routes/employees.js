@@ -29,7 +29,7 @@ router.get('/', getEmployeesController.getEmployees);
 
 router.get('/:id', getEmployeesByIdController.getEmployeesById);
 
-router.get('/:first_name', getEmployeesByFirstNameController.getEmployeesByFirstName);
+router.get('/firstname/:first_name', getEmployeesByFirstNameController.getEmployeesByFirstName);
 
 
 module.exports = router;
