@@ -7,6 +7,11 @@ const getAllDepartments = (req, res) => {
 	// set the sql query
 	let sql = "SELECT * FROM departments";
 
+	if(req.query.include && req.query.include.indexOf("manager") > -1){
+		sql = "Select * From dept_manager JOIN departments ON dept_manager.dept_no = departments.dept_no JOIN employees ON employees.emp_no LIKE concat ('%',dept_manager.emp_no)"
+		
+	  }
+	
 	// run the query
 	pool.query(sql, (err, rows) => {
 		if (err) return handleSQLError(res, err);
@@ -47,6 +52,7 @@ const getDepartmentsByEmpolyeeID = (req, res) => {
 		return res.json(rows);
 	});
 };
+
 
 //export the functions we just set up
 module.exports = {

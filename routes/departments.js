@@ -12,5 +12,6 @@ router.get("/departments/:dept_name", controller.getEmployeesByDepartment);
 
 router.get("/department/:emp_no", controller.getDepartmentsByEmpolyeeID);
 
+
 // make the router available to the API
 module.exports = router;
