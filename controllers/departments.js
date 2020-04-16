@@ -7,11 +7,31 @@ const getAllDepartments = (req, res) => {
 	// set the sql query
 	let sql = "SELECT * FROM departments";
 
-	if(req.query.include && req.query.include.indexOf("manager") > -1){
-		sql = "Select * From dept_manager JOIN departments ON dept_manager.dept_no = departments.dept_no JOIN employees ON employees.emp_no LIKE concat ('%',dept_manager.emp_no)"
-		
-	  }
-	
+	if (req.query.include && req.query.include.indexOf("manager") > -1) {
+		sql =
+			"Select * From dept_manager JOIN departments ON dept_manager.dept_no = departments.dept_no JOIN employees ON employees.emp_no LIKE concat ('%',dept_manager.emp_no)";
+	}
+
+	// run the query
+	pool.query(sql, (err, rows) => {
+		if (err) return handleSQLError(res, err);
+		return res.json(rows);
+	});
+};
+
+// /departments/:deptNo?include=manager
+// Return a department by number, include its manager
+// show list of all departments
+const getAllDepartmentsID = (req, res) => {
+	// set the sql query
+	let sql = `SELECT * FROM departments WHERE departments.dept_no = '${req.params.dept_no}'`;
+
+	if (req.query.include && req.query.include.indexOf("manager") > -1) {
+		sql = `Select * From dept_manager
+    JOIN departments ON dept_manager.dept_no = departments.dept_no
+    JOIN employees ON employees.emp_no LIKE concat ('%',dept_manager.emp_no) WHERE departments.dept_no = '${req.params.dept_no}'`;
+	}
+
 	// run the query
 	pool.query(sql, (err, rows) => {
 		if (err) return handleSQLError(res, err);
@@ -53,10 +73,10 @@ const getDepartmentsByEmpolyeeID = (req, res) => {
 	});
 };
 
-
 //export the functions we just set up
 module.exports = {
 	getAllDepartments,
 	getEmployeesByDepartment,
-	getDepartmentsByEmpolyeeID
+	getDepartmentsByEmpolyeeID,
+	getAllDepartmentsID
 };
