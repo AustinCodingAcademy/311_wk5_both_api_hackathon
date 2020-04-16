@@ -16,18 +16,20 @@
 
 // AFTER 
 
-const express = require('express')
+const express = require('express');
+const router = express.Router();
 
-const getEmployeesController = require('../controllers/getEmployees')
-const getEmployeesByFirstNameController = require('../controllers/getEmployeesByFirstName')
-const getEmployeesByIdController = require('../controllers/getEmployeesById')
-
-const router = express.Router()
-
-
-router.get('/', getEmployeesController.getEmployees)
-router.get('/:id', getEmployeesByIdController.getEmployeesById)
-router.get('/:first_name', getEmployeesByFirstNameController.getEmployeesByFirstName)
+const getEmployeesController = require('../controllers/getEmployees');
+const getEmployeesByIdController = require('../controllers/getEmployeesById');
+const getEmployeesByFirstNameController = require('../controllers/getEmployeesByFirstName');
 
 
-module.exports = router
+
+router.get('/', getEmployeesController.getEmployees);
+
+router.get('/:id', getEmployeesByIdController.getEmployeesById);
+
+router.get('/:first_name', getEmployeesByFirstNameController.getEmployeesByFirstName);
+
+
+module.exports = router;
