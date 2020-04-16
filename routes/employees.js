@@ -20,14 +20,14 @@ const express = require('express')
 
 const getEmployeesController = require('../controllers/getEmployees')
 const getEmployeesByFirstNameController = require('../controllers/getEmployeesByFirstName')
-const getEmployeesByIdController = require('../controllers/getEmployeesById')
+// const getEmployeesByIdController = require('../controllers/getEmployeesById')
 
 const router = express.Router()
 
 
 router.get('/', getEmployeesController.getEmployees)
 router.get('/:first_name', getEmployeesByFirstNameController.getEmployeesByFirstName)
-router.get('/:id', getEmployeesByIdController.getEmployeesById)
+// router.get('/:id', getEmployeesByIdController.getEmployeesById)
 
 
 module.exports = router
