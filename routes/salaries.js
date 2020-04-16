@@ -12,5 +12,7 @@ router.get("/salaries/:first_name", controller.getSalariesByFirstName);
 
 router.get("/salaries/:emp_no", controller.getSalaryByID);
 
+router.get("/salaries/above/:num", controller.getSalariesAbove);
+
 // make the router available to the API
 module.exports = router;

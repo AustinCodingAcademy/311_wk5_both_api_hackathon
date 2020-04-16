@@ -33,6 +33,25 @@ const getSalariesByFirstName = (req, res) => {
 	});
 };
 
+// Get salaries of employees above a certain pay (num)
+const getSalariesAbove = (req, res) => {
+	// set sql statement
+	let sql = `Select * from salaries join employees on 
+	employees.emp_no = salaries.emp_no where salary >= ? LIMIT 1000`;
+	// set parameters for query
+	const replacements = [
+		req.params.num
+	]
+
+	// add the replacements to the query
+	sql = mysql.format(sql, replacements)
+	
+	pool.query(sql, (err, rows) => {
+		if (err) return handleSQLError(res, err);
+		return res.json(rows);
+	});
+};
+
 const getSalaryByID = (req,res) => {
     // set the SQL statement
     let sql = "SELECT * from employees JOIN salaries ON salaries.emp_no=employees.emp_no WHERE employees.emp_no= ?"
@@ -48,4 +67,4 @@ const getSalaryByID = (req,res) => {
 }
 
 //export the functions we just set up
-module.exports = { getAllSalaries, getSalariesByFirstName, getSalaryByID };
+module.exports = { getAllSalaries, getSalariesByFirstName, getSalaryByID, getSalariesAbove };
