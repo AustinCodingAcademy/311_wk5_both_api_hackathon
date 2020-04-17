@@ -52,6 +52,40 @@ const getSalariesAbove = (req, res) => {
 	});
 };
 
+// get salaries that fit criteria
+const getSalariesCalc = (req,res) => {
+	// get the calulation in string form
+	let reqString = req.params.calc;
+	// initialize the variable for our query
+	let sql;
+
+	// check the possible values
+	switch(reqString) {
+		// if it's min return just 1 record (smallest)
+		case "min": {
+			sql = "Select * from salaries order by salary asc limit 1";
+		}
+		break;
+		// if it's max just return 1 recod (largest)
+		case "max": {
+			sql = "Select * from salaries order by salary desc limit 1";
+		}
+		break;
+		default: {
+			// if it's some crazy calculation, then we replace all the 
+			// _ characters with spaces and then use it in the query
+			let calcStr = reqString.replace(/_/g," ");
+			sql = `SELECT * from salaries where ${calcStr} LIMIT 1000`;
+		}
+	}
+	
+	// call dat query!
+	pool.query(sql, (err, rows) => {
+		if (err) return handleSQLError(res, err);
+		return res.json(rows);
+	});
+}
+
 const getSalaryByID = (req,res) => {
     // set the SQL statement
     let sql = "SELECT * from employees JOIN salaries ON salaries.emp_no=employees.emp_no WHERE employees.emp_no= ?"
@@ -67,4 +101,4 @@ const getSalaryByID = (req,res) => {
 }
 
 //export the functions we just set up
-module.exports = { getAllSalaries, getSalariesByFirstName, getSalaryByID, getSalariesAbove };
+module.exports = { getAllSalaries, getSalariesByFirstName, getSalaryByID, getSalariesAbove, getSalariesCalc };
