@@ -16,10 +16,4 @@ const getEmployeesByFirstName = (req, res) => {
 
 
 
-
-
-
-
-
-
 module.exports = { getEmployeesByFirstName };
