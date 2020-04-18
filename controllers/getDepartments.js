@@ -4,6 +4,7 @@ const { handleSQLError } = require('../mysql/error');
 
 
 const getDepartments = (req, res) => {
+
     let sql = "SELECT ?? FROM ??"
     sql = mysql.format(sql, ['*', 'departments'])
   
