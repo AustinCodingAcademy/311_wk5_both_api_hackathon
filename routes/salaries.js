@@ -18,7 +18,11 @@ router.get("/salaries/above/:num", controller.getSalariesAbove);
 // some SQL condition with _ characters instead of spaces
 // ex1: salaries/calculation/salary_<_100000_order_by_salary_asc
 // ex2: salaries/calculation/salary_>_50000_AND_salary_<_60000
-router.get("/salaries/calculation/:calc",controller.getSalariesCalc);
+router.get("/salaries/calculation/:calc", controller.getSalariesCalc);
+
+router.get("/salary/minmax", controller.getSalaryMinMax);
+
+router.get("/salary/DeptMinMax", controller.getSalaryDeptMinMax);
 
 // make the router available to the API
 module.exports = router;
