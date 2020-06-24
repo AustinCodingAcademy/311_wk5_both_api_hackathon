@@ -6,7 +6,7 @@ const usersRouter = require('./routes/employees')
 
 app.get('/', (req, res) => res.send('WELCOME TO OUR API'))
 
-app.use(usersRouter)
+app.use('/employees', usersRouter)
 app.use(bodyParser.json())
 
 app.listen(port, () => {
