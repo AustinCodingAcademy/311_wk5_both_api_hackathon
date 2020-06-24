@@ -13,4 +13,4 @@ router.get('/firstname/:first_name', (req, res) => {
   res.send('getting employees')
 })
 
-module.exports = employeesRouter
+module.exports = router
