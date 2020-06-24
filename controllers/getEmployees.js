@@ -1,5 +1,5 @@
 const mysql = require('mysql')
-const pool = require('../sql/connection')
+const pool = require('../mysql/connection')
 
 
 const getEmployees = (req, res) => {
