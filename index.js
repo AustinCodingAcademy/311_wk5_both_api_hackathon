@@ -5,5 +5,5 @@ const port = process.env.PORT || 4001
 app.get('/', (req, res) => res.send('WELCOME TO OUR API'))
 
 app.listen(port, () => {
-    console.log('   app is listening on:', port)
+    console.log('app is listening on:', port)
 })

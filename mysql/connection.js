@@ -7,11 +7,11 @@ class Connection {
       this.pool = mysql.createPool({
         connectionLimit: 100,
         //ip address of your database
-        host: '',
+        host: '34.72.115.136',
         //probably is 'root'
         user: 'root',
         //your password
-        password: null,
+        password: 'Digital#2020',
         database: 'employees'
       })
 
