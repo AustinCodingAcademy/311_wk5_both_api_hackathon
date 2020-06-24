@@ -1,12 +1,14 @@
 const express = require('express');
 const bodyParser = require("body-parser")
 const usersRouter = require('./routes/employees')
+const deptRouter = require('./routes/departments')
 
 const app = express();
 const port = process.env.PORT || 4001
 
 app.use(bodyParser.json())
 app.use('/employees', usersRouter)
+app.use('/department', deptRouter)
 
 app.get('/', (req, res) => res.send(`
 WELCOME TO OUR EMPLOYEE API
