@@ -7,7 +7,7 @@ const handleSQLError = (res, err) => {
 }
 
 const getEmployees = (req, res) => {
-  pool.query("SELECT * FROM employees", (err, rows) => {
+  pool.query("SELECT * FROM employees Limit 50", (err, rows) => {
     if (err) return handleSQLError(res, err)
     return res.json(rows);
   })
