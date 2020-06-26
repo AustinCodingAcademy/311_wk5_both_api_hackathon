@@ -28,7 +28,7 @@ const getDepartment = (req, res) => {
   })
 }
 
-//Should return all users who's salaries fallin the provided range
+//Should return all users who's salaries fall in the provided range
 const getSalary = (req, res) => {
   let sql = `SELECT 
                 e.emp_no,
@@ -43,8 +43,7 @@ const getSalary = (req, res) => {
             WHERE salary BETWEEN ? AND ?
             LIMIT 100`
 
-  let salary = req.params.salary
-  sql = mysql.format(sql, [salary, salary])
+  sql = mysql.format(sql, [req.params.minRange, req.params.maxRange])
 
   pool.query(sql, (err, rows) => {
     if (err) return handleSQLError(res, err)
@@ -52,9 +51,34 @@ const getSalary = (req, res) => {
   })
 }
 
-//should find all employees who have worked for the company for the provided years.
-const getTenure = (req, res) => {
+//should look up employee id, and return their name, department name, and title
+//joins employees, titles, and departments three joins
+const getDeptAndTitle = (req, res) => {
+  let sql = `SELECT 
+              e.emp_no,
+              e.first_name,
+              e.last_name,
+              t.title,
+              t.from_date,
+              t.to_date,
+              de.dept_no,
+              d.dept_name
+            FROM titles t
+            LEFT JOIN employees e
+              ON t.emp_no = e.emp_no
+            LEFT JOIN dept_emp de
+              ON e.emp_no = de.emp_no
+            LEFT JOIN departments d
+              ON de.dept_no = d.dept_no
+            WHERE e.emp_no = ?` 
 
+  const id = req.params.emp_no            
+  sql = mysql.format(sql, [id])
+
+  pool.query(sql, (err, rows) => {
+    if (err) return handleSQLError(res, err)
+    return res.json(rows);
+  })
 }
 
-module.exports = {getDepartment, getSalary, getTenure}
+module.exports = {getDepartment, getSalary, getDeptAndTitle}

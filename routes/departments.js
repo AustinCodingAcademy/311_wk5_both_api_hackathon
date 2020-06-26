@@ -8,9 +8,9 @@ const router = express.Router()
 router.get('/:emp_no', controller.getDepartment)
 
 //Should return all users who's salaries fallin the provided range
-router.get('/salaries/:salary/:salary', controller.getSalary)
+router.get('/salaries/:minRange/:maxRange', controller.getSalary)
 
 //should find all employees who have worked for the company for the provided years.
-router.get('/tenure/:yearsWorked', controller.getTenure)
+router.get('/:emp_no', controller.getDeptAndTitle)
 
 module.exports = router;
