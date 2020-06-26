@@ -9,7 +9,7 @@ const getEmployees = (req, res) => {
 
   pool.query(sql, (err, results) => {
     if (err) return handleSQLError(res, err)
-    return res.json(rows)
+    return res.json(results)
   })
 }
 
