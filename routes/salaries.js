@@ -7,6 +7,6 @@ const getSingleSalaryByIdController = require('../controllers/singleSalaryById')
 
 router.get('/employees/:id', getSalariesByIdController.salariesById)
 
-router.get('/:empid', getSingleSalaryByIdController.singleSalaryById)
+router.get('/:id', getSingleSalaryByIdController.singleSalaryById)
 
 module.exports = router
