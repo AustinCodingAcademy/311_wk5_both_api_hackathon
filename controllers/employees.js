@@ -21,7 +21,7 @@ const getEmployeeById = (req, res) => {
 
 const getEmployeesByFirstName = (req, res) => {
   let sql = "SELECT * FROM employees WHERE first_name = ?";
-  sql = mysql.format(sql, [req.params.first_name]);
+  sql = mysql.format(sql, [req.body.first_name]);
 
   pool.query(sql, (err, rows) => {
     if (err) return handleSQLError(res, err);

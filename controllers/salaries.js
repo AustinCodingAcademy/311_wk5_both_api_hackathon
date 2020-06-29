@@ -3,8 +3,7 @@ const pool = require("../mysql/connection");
 const { handleSQLError } = require("../mysql/error");
 
 const getEmployeesBySalaries = (req, res) => {
-  pool.query(
-    "SELECT employees.emp_no, employees.first_name, employees.last_name, salaries.salary FROM employees, salaries WHERE employees.emp_no=salaries.emp_no ORDER BY salary LIMIT 50",
+  pool.query( "SELECT employees.emp_no, employees.first_name, employees.last_name, salaries.salary FROM employees, salaries WHERE employees.emp_no=salaries.emp_no ORDER BY salary LIMIT 50",
     (err, rows) => {
       if (err) return handleSQLError(res, err);
       return res.json(rows);
