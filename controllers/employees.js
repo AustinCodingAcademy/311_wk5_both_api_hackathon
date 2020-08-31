@@ -14,14 +14,14 @@ const getEmployees = (req, res) => {
 
 const getEmployeeById = (req, res) => {
     let sql = 'SELECT * FROM employees WHERE employees.emp_no = ?;'
-    sql = mysql.format(sql, [req.params.emp_no])
+    sql = mysql.format(sql, [req.params.id])
+    console.log(sql)
     pool.query(sql, (err, rows) => {
         if (err) return handleSQLError(res, err)
         return res.json(rows);
     })
 }
-
-
+// const getEmployeesByFirstName = (req, res)
 
  module.exports = {
      getEmployees,

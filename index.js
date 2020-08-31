@@ -6,7 +6,7 @@ const app = express()
 const port = process.env.PORT || 4001
 
 app.use(bodyParser.json())
-app.use('/users', employeesRouter)
+app.use('/employees', employeesRouter)
 
 app.get('/', (req, res) => {
   res.send('Welcome to our API!')
