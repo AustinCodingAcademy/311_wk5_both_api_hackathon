@@ -76,7 +76,7 @@ We are going to use sample data given to use by MySQL. An overview of the proces
 
 8. Open a new query and run `select * from employees;`
 
-9. You should have retrieved 1000 employee rows 
+9. You should have retrieved 1000 employee rows
 
 10. You should see 6 tables under this database. There are over 2 million records among those two tables
 
