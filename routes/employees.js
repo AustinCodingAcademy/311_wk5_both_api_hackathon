@@ -15,6 +15,6 @@ router.post('/', createEmployeeController.createEmployee)
 
 router.put('/:id', updateEmployeeController.updateEmployee)
 
-router.delete('firstname/:first_name', deleteEmployeeController.deleteEmployee)
+router.delete('/:id', deleteEmployeeController.deleteEmployee)
 
 module.exports = router
