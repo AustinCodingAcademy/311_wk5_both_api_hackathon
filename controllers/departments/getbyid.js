@@ -17,3 +17,4 @@ const getDepartmentsById = (req, res) => {
 module.exports = {
   getDepartmentsById 
 }
+

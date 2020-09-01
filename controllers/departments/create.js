@@ -15,3 +15,4 @@ const createDepartments = (req, res) => {
 }
 
 module.exports = {createDepartments}
+
