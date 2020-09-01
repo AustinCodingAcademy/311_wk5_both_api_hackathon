@@ -6,14 +6,14 @@ const getAllDepartmentsController = require('../controllers/departments/getall')
 const getByIdDepartmentsController = require('../controllers/departments/getbyid')
 const updateDepartmentsController = require('../controllers/departments/update')
 
-router.get('/', createDepartmentsController.getDepartments)
+router.get('/', getAllDepartmentsController.getDepartments)
 
-router.get('deptno/:dept_no', deleteDepartmentsController.getDepartmentsByNo)
+router.get('deptno/:dept_no', getByIdDepartmentsController.getDepartmentsByNo)
 
-router.post('/', getAllDepartmentsController.createDepartment)
+router.post('/', createDepartmentsController.createDepartment)
 
-router.put('deptno/:dept_no', getByIdDepartmentsController.updateDepartment)
+router.put('deptno/:dept_no', updateDepartmentsController.updateDepartment)
 
-router.delete('deptno/:dept_no', updateDepartmentsController.deleteDepartment)
+router.delete('deptno/:dept_no', deleteDepartmentsController.deleteDepartment)
 
 module.exports = router
