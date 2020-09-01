@@ -2,7 +2,7 @@ const mysql = require('mysql')
 const pool = require('../sql/connection')
 const { handleSQLError } = require('../sql/error')
 
-const getDepartmentsById = (req, res) => {
+const getDepartmentsByNo = (req, res) => {
   // SELECT USERS WHERE ID = <REQ PARAMS ID>
   let sql = "SELECT * FROM departments WHERE id = ?"
   // WHAT GOES IN THE BRACKETS
@@ -15,6 +15,6 @@ const getDepartmentsById = (req, res) => {
 }
 
 module.exports = {
-  getDepartmentsById 
+  getDepartmentsByNo
 }
 
