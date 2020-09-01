@@ -1,15 +1,15 @@
 const express = require('express')
 const router = express.Router()
-const employeesController = require('../controllers/employees')
+
+const getEmployeeByIdController = require('../controllers/employees/getbyid')
+const getAllEmployeesController = require('../controllers/employees/getall')
 const createEmployeeController = require('../controllers/employees/create')
 const updateEmployeeController = require('../controllers/employees/update')
 const deleteEmployeeController = require('../controllers/employees/delete')
 
-router.get('/', employeesController.getEmployees)
+router.get('/', getAllEmployeesController.getEmployees)
 
-router.get('/:id', employeesController.getEmployeeById)
-
-router.get('/firstname/:first_name', employeesController.getEmployeeByFirstName)
+router.get('/:id', getEmployeeByIdController.getEmployeeById)
 
 router.post('/', createEmployeeController.createEmployee)
 
