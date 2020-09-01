@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const salariesController = require('../controllers/salaries')
+const salariesController = require('../controllers/salary/delete.js')
+const salariesController = require('../controllers/salary/get-all.js')
+const salariesController = require('../controllers/salary/get-by-empNo.js')
+const salariesController = require('../controllers/salary/update.js')
 
 router.get('/', salariesController.getSalaries)
 
