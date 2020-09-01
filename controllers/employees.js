@@ -13,8 +13,8 @@ const getEmployees = (req, res) => {
 }
 
 const getEmployeeById = (req, res) => {
-    let sql = 'SELECT * FROM employees WHERE employees.emp_no = ?;'
-    sql = mysql.format(sql, [req.params.id])
+    let sql = 'SELECT * FROM employees WHERE employees.?;'
+    sql = mysql.format(sql, [req.params])
     pool.query(sql, (err, rows) => {
         if (err) return handleSQLError(res, err)
         return res.json(rows);
@@ -31,8 +31,8 @@ const getEmployeeByFirstName = (req, res) => {
     })
 }
 
- module.exports = {
-     getEmployees,
-     getEmployeeById,
-     getEmployeeByFirstName
- }
+module.exports = {
+    getEmployees,
+    getEmployeeById,
+    getEmployeeByFirstName
+}
