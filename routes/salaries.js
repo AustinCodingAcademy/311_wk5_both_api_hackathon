@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const deleteSalariesController = require('../controllers/salary/delete.js')
-const getAllSalariesController = require('../controllers/salary/get-all.js')
-const getByEmpNoSalariesController = require('../controllers/salary/get-by-empNo.js')
-const updateSalariesController = require('../controllers/salary/update.js')
+const deleteSalariesController = require('../controllers/salary/delete')
+const getAllSalariesController = require('../controllers/salary/get-all')
+const getByEmpNoSalariesController = require('../controllers/salary/get-by-empNo')
+const updateSalariesController = require('../controllers/salary/update')
 
 
 
