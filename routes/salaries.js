@@ -1,19 +1,19 @@
 const express = require('express')
 const router = express.Router()
-const salariesController = require('../controllers/salary/delete.js')
-const salariesController = require('../controllers/salary/get-all.js')
-const salariesController = require('../controllers/salary/get-by-empNo.js')
-const salariesController = require('../controllers/salary/update.js')
+const deleteSalariesController = require('../controllers/salary/delete.js')
+const getAllSalariesController = require('../controllers/salary/get-all.js')
+const getByEmpNoSalariesController = require('../controllers/salary/get-by-empNo.js')
+const updateSalariesController = require('../controllers/salary/update.js')
 
-router.get('/', salariesController.getSalaries)
 
-router.get('empno/:emp_no', salariesController.getSalariesByNo)
 
-router.post('/', salariesController.createSalary)
+router.get('empno/:emp_no', getAllSalariesController.getSalariesByNo)
 
-router.put('empno/: emp_no', salariesController.updateSalary)
+router.post('/', getByEmpNoSalariesController.createSalary)
 
-router.delete('empno/: emp_no', salariesController.deleteSalary)
+router.put('empno/: emp_no', updateSalariesController.updateSalary)
+
+router.delete('empno/: emp_no', deleteSalariesController.deleteSalary)
 
 
 
