@@ -1,19 +1,19 @@
 const express = require('express')
 const router = express.Router()
-const departmentsController = require('../controllers/departments/create.js')
-const departmentsController = require('../controllers/departments/delete.js')
-const departmentsController = require('../controllers/departments/getall.js')
-const departmentsController = require('../controllers/departments/getbyid.js')
-const departmentsController = require('../controllers/departments/put.js')
+const createDepartmentsController = require('../controllers/departments/create.js')
+const deleteDepartmentsController = require('../controllers/departments/delete.js')
+const getAllDepartmentsController = require('../controllers/departments/getall.js')
+const getByIdDepartmentsController = require('../controllers/departments/getbyid.js')
+const putDepartmentsController = require('../controllers/departments/put.js')
 
-router.get('/', departmentsController.getDepartments)
+router.get('/', createDepartmentsController.getDepartments)
 
-router.get('deptno/:dept_no', departmentsController.getDepartmentsByNo)
+router.get('deptno/:dept_no', deleteDepartmentsController.getDepartmentsByNo)
 
-router.post('/', departmentsController.createDepartment)
+router.post('/', getAllDepartmentsController.createDepartment)
 
-router.put('deptno/: dept_no', departmentsController.updateDepartment)
+router.put('deptno/: dept_no', getByIdDepartmentsController.updateDepartment)
 
-router.delete('deptno/: dept_no', departmentsController.deleteDepartment)
+router.delete('deptno/: dept_no', putDepartmentsController.deleteDepartment)
 
 module.exports = router
