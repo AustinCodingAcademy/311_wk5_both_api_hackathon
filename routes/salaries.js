@@ -13,9 +13,9 @@ router.get('empno/:emp_no', getByEmpNoSalariesController.getSalariesByNo)
 
 router.post('/', createSalaryController.createSalary)
 
-router.put('empno/: emp_no', updateSalariesController.updateSalary)
+router.put('empno/:emp_no', updateSalariesController.updateSalary)
 
-router.delete('empno/: emp_no', deleteSalariesController.deleteSalary)
+router.delete('empno/:emp_no', deleteSalariesController.deleteSalary)
 
 
 
