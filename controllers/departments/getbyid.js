@@ -4,9 +4,9 @@ const { handleSQLError } = require('../../sql/error')
 
 const getDepartmentsByNo = (req, res) => {
   // SELECT USERS WHERE ID = <REQ PARAMS ID>
-  let sql = "SELECT * FROM departments WHERE id = ?"
+  let sql = "SELECT * FROM departments WHERE department.?"
   // WHAT GOES IN THE BRACKETS
-  sql = mysql.format(sql, [req.params.id])
+  sql = mysql.format(sql, [req.params.dept_no])
 
   pool.query(sql, (err, rows) => {
     if (err) return handleSQLError(res, err)
