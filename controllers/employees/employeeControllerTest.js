@@ -1,4 +1,4 @@
-const updateEmployeesController = require('./update')
+const soonToBeDeprecatedPath = require('./update')
 const employeesController = require('../employees')
 
 
@@ -18,15 +18,17 @@ let mockResponse = {
 };
 
 let mockRequest = {
-    params: { emp_no: 10050}
+    params: { emp_no: 10150 },
+    body: { birth_date: '1992-04-22', first_name: "bogus", last_name: "user", gender: 'm', hire_date: '2014-03-11' }
 }
-//   params: { emp_no: 10233 },
-//   body: { birth_date: '1992-04-22', first_name: "bogus", last_name: "user", gender: 'm', hire_date: '2014-03-11' },
-// };
 
-//UNCOMMENT WHATEVER YOU ARE TRYING TO TEST
-// userController.getAllUsers(mockRequest,mockResponse);
-employeesController.getEmployeeById(mockRequest,mockResponse);
-//userController.createUser(mockRequest,mockResponse);
-// updateEmployeesController.updateEmployee(mockRequest,mockResponse);
-//userController.deleteUserByFirstName(mockRequest,mockResponse);
+// use these to test while routes are under construction
+
+// employeesController.getEmployees(mockRequest,mockResponse)
+// employeesController.getEmployeeById(mockRequest,mockResponse)
+// employeesController.getEmployeeByFirstName(mockRequest,mockResponse)
+soonToBeDeprecatedPath.updateEmployee(mockRequest,mockResponse)
+
+// for later
+// employeesController.createUser(mockRequest,mockResponse)
+// employeesController.deleteUserByFirstName(mockRequest,mockResponse)
