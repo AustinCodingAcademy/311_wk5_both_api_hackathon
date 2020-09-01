@@ -1,6 +1,6 @@
 const mysql = require('mysql')
-const pool = require('../sql/connection')
-const { handleSQLError } = require('../sql/error')
+const pool = require("../../sql/connection")
+const { handleSQLError } = require('../../sql/error')
 
 const createDepartment = (req, res) => {
   // INSERT INTO USERS FIRST AND LAST NAME 

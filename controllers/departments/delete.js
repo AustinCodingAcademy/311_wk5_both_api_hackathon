@@ -1,6 +1,6 @@
 const mysql = require('mysql')
-const pool = require('../sql/connection')
-const { handleSQLError } = require('../sql/error')
+const pool = require("../../sql/connection")
+const { handleSQLError } = require('../../sql/error')
 
 const deleteDepartment = (req, res) => {
   let sql = "DELETE FROM departments WHERE dept_no = ?;"
