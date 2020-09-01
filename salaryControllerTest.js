@@ -1,7 +1,8 @@
-let salaryDeleteController = require("./controllers/salary/delete");
-let salaryUpdateController = require("./controllers/salary/update")
-let salaryGetByEmpNoController = require("./controllers/salary/get-by-empNo")
-let salaryGetAllController = require("./controllers/salary/get-all")
+let deleteSalariesController = require("./controllers/salary/delete");
+let updateSalariesController = require("./controllers/salary/update")
+let getByEmpNoSalariesController = require("./controllers/salary/get-by-empNo")
+let getAllSalariesController = require("./controllers/salary/get-all")
+let createSalaryController = require("./controllers/salary/create")
 
 let mockResponse = {
   json: (body) => {
@@ -23,7 +24,8 @@ let mockRequest = {
 };
 
 //UNCOMMENT WHATEVER YOU ARE TRYING TO TEST
-salaryDeleteController.deleteSalary(mockRequest,mockResponse);
-salaryUpdateController.updateSalary(mockRequest,mockResponse);
-salaryGetByEmpNoController.getSalariesByNo(mockRequest,mockResponse);
-salaryGetAllController.getSalaries(mockRequest,mockResponse);
+deleteSalariesController.deleteSalary(mockRequest,mockResponse);
+// updateSalariesController.updateSalary(mockRequest,mockResponse);
+// getByEmpNoSalariesController.getSalariesByNo(mockRequest,mockResponse);
+// getAllSalariesController.getSalaries(mockRequest,mockResponse);
+// createSalaryController.createSalary(mockRequest,mockResponse);

@@ -1,6 +1,6 @@
 const mysql = require('mysql')
-const pool = require('../sql/connection')
-const { handleSQLError } = require('../sql/error')
+const pool = require('../../sql/connection')
+const { handleSQLError } = require('../../sql/error')
 
 
 const updateSalary = (req, res) => {
@@ -12,7 +12,6 @@ const updateSalary = (req, res) => {
         return res.json(rows);
     })
 }
-
 
  module.exports = {
      updateSalary
