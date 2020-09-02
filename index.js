@@ -10,7 +10,7 @@ const port = process.env.PORT || 4001;
 app.use('/users', usersRouter)
 
 app.get('/', (req, res) => {
-res.send('Welcome to our server!')
+    res.send('Welcome to our server!')
 })
 
-app.listen(port, () => { console.log(Listening on port ${port}!); });
+app.listen(port, () => { console.log(`Listening on port ${port}!`); });
