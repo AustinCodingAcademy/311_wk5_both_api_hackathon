@@ -12,4 +12,6 @@ const deleteDepartment = (req, res) => {
   })
 }
 
-module.exports = {deleteDepartment}
+module.exports = {
+  deleteDepartment
+}

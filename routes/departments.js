@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router()
+
 const createDepartmentsController = require('../controllers/departments/create')
 const deleteDepartmentsController = require('../controllers/departments/delete')
-const getAllDepartmentsController = require('../controllers/departments/getall')
-const getByIdDepartmentsController = require('../controllers/departments/getbyid')
+const getAllDepartmentsController = require('../controllers/departments/getAll')
+const getByIdDepartmentsController = require('../controllers/departments/getById')
 const updateDepartmentsController = require('../controllers/departments/update')
 
 router.get('/', getAllDepartmentsController.getDepartments)
