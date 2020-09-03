@@ -7,10 +7,10 @@ if (!this.pool) {
 console.log('creating connection...')
 this.pool = mysql.createPool({
 connectionLimit: 100,
-host: '35.223.117.232',
+host: '34.71.106.118',
 user: 'root',
-password: '123456',
-database: 'Admin'
+password: 'theprojectdl',
+database: 'employees'
 });
 return this.pool
 };
