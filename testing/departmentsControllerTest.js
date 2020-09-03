@@ -1,8 +1,8 @@
-let departmentGetController = require("./controllers/departments/getall");
-let departmentGetIdController = require("./controllers/departments/getbyid");
-let departmentDeleteController = require("./controllers/departments/delete");
-let departmentPutController = require("./controllers/departments/put");
-let departmentCreateController = require("./controllers/departments/create");
+let departmentGetController = require("../controllers/departments/getAll");
+let departmentGetIdController = require("../controllers/departments/getById");
+let departmentDeleteController = require("../controllers/departments/delete");
+let departmentUpdateController = require("../controllers/departments/update");
+let departmentCreateController = require("../controllers/departments/create");
 
 let mockResponse = {
   json: (body) => {
@@ -28,5 +28,5 @@ let mockRequest = {
 departmentGetController.getDepartments(mockRequest,mockResponse);
 // departmentGetIdController.getDepartmentsByNo(mockRequest,mockResponse);
 // departmentCreateController.createDepartment(mockRequest,mockResponse);
-// departmentPutController.updateDepartment(mockRequest,mockResponse);
+// departmentUpdateController.updateDepartment(mockRequest,mockResponse);
 // departmentDeleteController.deleteDepartment(mockRequest,mockResponse);

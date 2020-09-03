@@ -1,8 +1,8 @@
-let deleteSalariesController = require("./controllers/salary/delete");
-let updateSalariesController = require("./controllers/salary/update")
-let getByEmpNoSalariesController = require("./controllers/salary/get-by-empNo")
-let getAllSalariesController = require("./controllers/salary/get-all")
-let createSalaryController = require("./controllers/salary/create")
+let deleteSalariesController = require("../controllers/salary/delete");
+let updateSalariesController = require("../controllers/salary/update")
+let getByEmpNoSalariesController = require("../controllers/salary/getById")
+let getAllSalariesController = require("../controllers/salary/getAll")
+let createSalaryController = require("../controllers/salary/create")
 
 let mockResponse = {
   json: (body) => {

@@ -12,4 +12,6 @@ const updateDepartment = (req, res) => {
   })
 }
 
-module.exports = {updateDepartment}
+module.exports = {
+  updateDepartment
+}

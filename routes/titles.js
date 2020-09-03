@@ -1,19 +1,20 @@
-const express = require('express')
-const router = express.Router()
-const titlesController = require('../controllers/titles')
+// const express = require('express')
+// const router = express.Router()
 
-router.get('/', titlesController.getTitles)
+// const deleteTitlesController = require('../controllers/titles/delete')
+// const getAllTitlesController = require('../controllers/titles/getAll')
+// const getByEmpNoTitlesController = require('../controllers/titles/getById')
+// const updateTitlesController = require('../controllers/titles/update')
+// const createTitlesController = require('../controllers/titles/create')
 
-router.get('empno/:emp_no', titlesController.getTitlesByNo)
+// router.get('/', getAllTitlesController.getTitles)
 
-router.post('/', titlesController.createTitle)
+// router.get('empno/:emp_no', getByEmpNoTitlesController.getTitlesByNo)
 
-router.put('empno/: emp_no', titlesController.updateTitle)
+// router.post('/', createTitlesController.createTitle)
 
-router.delete('empno/: emp_no', titlesController.deleteTitle)
+// router.put('empno/:emp_no', updateTitlesController.updateTitle)
 
+// router.delete('empno/:emp_no', deleteTitlesController.deleteTitle)
 
-
-
-
-module.exports = router
+// module.exports = router
