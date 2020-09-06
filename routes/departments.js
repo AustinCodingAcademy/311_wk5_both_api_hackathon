@@ -9,12 +9,12 @@ const updateDepartmentsController = require('../controllers/departments/update')
 
 router.get('/', getAllDepartmentsController.getDepartments)
 
-router.get('deptno/:dept_no', getByIdDepartmentsController.getDepartmentsByNo)
+router.get('/:dept_no', getByIdDepartmentsController.getDepartmentsByNo)
 
 router.post('/', createDepartmentsController.createDepartment)
 
-router.put('deptno/:dept_no', updateDepartmentsController.updateDepartment)
+router.put('/:dept_no', updateDepartmentsController.updateDepartment)
 
-router.delete('deptno/:dept_no', deleteDepartmentsController.deleteDepartment)
+router.delete('/:dept_no', deleteDepartmentsController.deleteDepartment)
 
 module.exports = router

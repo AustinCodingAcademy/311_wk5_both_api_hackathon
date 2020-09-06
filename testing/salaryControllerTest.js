@@ -19,12 +19,12 @@ let mockResponse = {
   },
 };
 let mockRequest = {
-  params: { emp_no: 10001, salary: "24000" },
-  body: { from_date: "1990-03-21", to_date: "1991-03-21" },
+  params: { emp_no: "10001", salary: 1000000 },
+  body: { salary:1000000, from_date: "1990-03-03", to_date: "1991-03-03" },
 };
 
 //UNCOMMENT WHATEVER YOU ARE TRYING TO TEST
-deleteSalariesController.deleteSalary(mockRequest,mockResponse);
+// deleteSalariesController.deleteSalary(mockRequest,mockResponse);
 // updateSalariesController.updateSalary(mockRequest,mockResponse);
 // getByEmpNoSalariesController.getSalariesByNo(mockRequest,mockResponse);
 // getAllSalariesController.getSalaries(mockRequest,mockResponse);
