@@ -3,7 +3,7 @@ const pool = require("../../sql/connection")
 const { handleSQLError } = require('../../sql/error')
 
 const deleteEmployee = (req, res) => {
-  let sql = "DELETE FROM employees WHERE emp_no = ?"
+  let sql = "UPDATE employees SET is_deleted = true WHERE emp_no = ?"
   sql = mysql.format(sql, [req.params.emp_no])
 
   pool.query(sql, (err, results) => {

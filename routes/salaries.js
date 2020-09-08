@@ -9,12 +9,12 @@ const createSalaryController = require('../controllers/salary/create')
 
 router.get('/', getAllSalariesController.getSalaries)
 
-router.get('empno/:emp_no', getByEmpNoSalariesController.getSalariesByNo)
+router.get('/:emp_no', getByEmpNoSalariesController.getSalariesByNo)
 
 router.post('/', createSalaryController.createSalary)
 
-router.put('empno/:emp_no', updateSalariesController.updateSalary)
+router.put('/:emp_no', updateSalariesController.updateSalary)
 
-router.delete('empno/:emp_no', deleteSalariesController.deleteSalary)
+router.delete('/:emp_no', deleteSalariesController.deleteSalary)
 
 module.exports = router
