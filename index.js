@@ -7,7 +7,7 @@ app.use("/employees", employeesRouter);
 
 
 app.get('/', (req, res) => {
-  res.send("Welcome to our API");
+  res.send("Welcome to our API!");
 });
 
 app.listen(port, () => {
