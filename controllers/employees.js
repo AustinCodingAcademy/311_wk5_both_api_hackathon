@@ -1,3 +1,5 @@
+const pool = require("../mysql/connection");
+
 const getEmployees = (req, res) => {
   return res.json("getting employees...");
 };
