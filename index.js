@@ -6,6 +6,8 @@ app.get("/", (req, res) => {
   res.send("Welcome to our API!");
 });
 
+app.use(require("./routes/employees.js"));
+
 app.listen(port, () => {
   console.log(`Web server is listening on port ${port}.`);
 });
