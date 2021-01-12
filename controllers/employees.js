@@ -16,7 +16,7 @@ const getEmployees = (req, res) => {
 };
 
 const getEmployeesById = (req, res) => {
-  let sql = "SELECT * FROM employees WHERE id = ?";
+  let sql = "SELECT * FROM employees WHERE emp_no = ?";
   const replacements = [req.params.id];
   sql = mysql.format(sql, replacements);
 
