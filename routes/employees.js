@@ -1,27 +1,9 @@
 const express = require('express')
-const employeesController = require('../controllers/employees')
 const router = express.Router()
+const employeesController = require('../controllers/employees')
 
-// const employees = WAITING TO HOOK MY MYSQL
-
-// app.get("/", (req, res) => {
-//     res.send('getting employees...')
-// })
-
-router.get('/', employeesController.getEmployees);
-
-// app.get("/:id", (req, res) => {
-//     res.send('getting employees...')
-// })
-
-router.get('/', employeesController.getEmployeesById);
-
-
-// app.get("firstname/:first_name", (req, res) => {
-//     res.send('getting employees...')
-// })
-
-router.get('/', employeesController.getEmployeesByFirstName);
-
+router.get("/", employeesController.getEmployees)
+router.get("/:id", employeesController.getEmployeesById)
+router.get("firstname/:first_name", employeesController.getEmployeesByFirstName)
 
 module.exports = router
