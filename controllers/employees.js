@@ -20,7 +20,7 @@ const getEmployeesById = (req, res) => {
     sql = mysql.format(sql, value)
 
     pool.query(sql, (err, results) => {
-        if (err) throw err
+        if (err) return handleSQLError(res, err)
         return res.json(results)
     })
 }
