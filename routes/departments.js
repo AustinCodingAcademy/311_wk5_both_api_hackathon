@@ -1,9 +1,7 @@
 const express = require('express')
 const router = express.Router()
-// const departments = WAITING FOR CONTROLLERS / POOL
+const departmentsController = require('../controllers/departments')
 
-router.get("/departments/name", (req, res) => {
-    res.send('getting department names...')
-})
+router.get("/departments/:dept_name", departmentsController.getDepartmentsByName)
 
 module.exports = router
