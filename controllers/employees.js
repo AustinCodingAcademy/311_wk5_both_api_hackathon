@@ -12,15 +12,9 @@ const getEmployees = (req, res) => {
     })
 }
 
-// const getEmployeesById = (req, res) => {
-//     res.send("getting employees...")
-// } 
-
-// getEmployeesById
-
 const getEmployeesById = (req, res) => {
     // SELECT USER BY ID
-  let sql = "SELECT * FROM employees WHERE emp_no = ?"
+  let sql = "SELECT * FROM employees WHERE emp_no = ? LIMIT 50"
 
   sql = mysql.format(sql, [(req.params.emp_no)]);
 
@@ -30,10 +24,8 @@ const getEmployeesById = (req, res) => {
   })
 }
 
-// getEmployeesByFirstName
-
 const getEmployeesByFirstName = (req,res) => {
-    let sql = "SELECT * FROM employees WHERE first_name = ?"
+    let sql = "SELECT * FROM employees WHERE first_name = ? LIMIT 50"
 
     sql = mysql.format(sql, [req.params.first_name]);
 
