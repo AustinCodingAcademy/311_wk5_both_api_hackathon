@@ -1,5 +1,3 @@
-const mysql = require('mysql')
-
 const getEmployeeById = (req, res) => {
     let id = req.params.id
 
