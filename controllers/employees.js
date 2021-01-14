@@ -17,22 +17,22 @@ const getEmployees = (req, res) => {
 // } 
 
 // getEmployeesById
-// const getEmployeesById = (req, res) => {
-//     // SELECT USER BY ID
-//   let sql = "SELECT * FROM employees WHERE emp_no = ?"
 
-//   sql = mysql.format(sql, [(req.params.emp_no)]);
+const getEmployeesById = (req, res) => {
+    // SELECT USER BY ID
+  let sql = "SELECT * FROM employees WHERE emp_no = ?"
 
-//   pool.query("SELECT * FROM employees WHERE emp_no = ?", (err, rows) => {
-//     if (err)  return res.status(500).send('An unexpected error occurred');
-//     return res.json(rows);
-//   })
-// }
+  sql = mysql.format(sql, [(req.params.emp_no)]);
+
+  pool.query(sql, (err, rows) => {
+    if (err)  return res.status(500).send('An unexpected error occurred');
+    return res.json(rows);
+  })
+}
 
 // getEmployeesByFirstName
 
 const getEmployeesByFirstName = (req,res) => {
-    // let first_name = req.params.first_name;
     let sql = "SELECT * FROM employees WHERE first_name = ?"
 
     sql = mysql.format(sql, [req.params.first_name]);
@@ -40,7 +40,6 @@ const getEmployeesByFirstName = (req,res) => {
     pool.query(sql, (err, rows) => {
         if (err)  return res.status(500).send('An unexpected error occurred');
         return res.json(rows);
-        
     })
 }
 
@@ -48,7 +47,7 @@ const getEmployeesByFirstName = (req,res) => {
 
 module.exports = { 
   getEmployees,
-  // getEmployeesById
+  getEmployeesById,
   getEmployeesByFirstName 
 }
 
