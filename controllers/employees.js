@@ -25,7 +25,17 @@ const getEmployeesById = (req, res) => {
     })
 }
 
-const getEmployeesByFirstName;
+const getEmployeesByFirstName = (req, res) => {
+  let firstName = req.params.first_name;
+  let sql = "SELECT FROM employees WHERE first_name = ?"
+  sql = mysql.format(sql, [firstName])
+
+  pool.query(sql, (err, results) => {
+    if (err) return handleSQLError(res, err)
+    return res.json(results)
+  })
+
+};
 
 
 module.exports = { getEmployees, getEmployeesById, getEmployeesByFirstName }
