@@ -13,7 +13,18 @@ const getDepartmentsByName = (req,res) => {
   })
 }
 
+const getEmployeeByDeptAndYear = (req,res) => {
+    let sql = "SELECT departments.dept_name, first_name, last_name, dept_emp.from_date, dept_emp.to_date FROM employees JOIN dept_emp ON employees.emp_no=dept_emp.emp_no JOIN departments ON dept_emp.dept_no=departments.dept_no WHERE dept_name = ? AND SUBSTRING(from_date, 1, 4) = ?"
+  
+    sql = mysql.format(sql, [(req.params.dept_name, req.params.from_date)]);
+  
+    pool.query(sql, (err, rows) => {
+      if (err)  return res.status(500).send('An unexpected error occurred');
+      return res.json(rows);
+    })
+  }
 
 module.exports = { 
-    getDepartmentsByName
+    getDepartmentsByName,
+    getEmployeeByDeptAndYear
   }

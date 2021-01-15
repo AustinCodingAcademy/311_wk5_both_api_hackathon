@@ -1,13 +1,7 @@
 const express = require('express')
 const router = express.Router()
+const managersController = require("../controllers/managers")
 
-const { response } = require('express')
-const mysql = require('mysql')
-const pool = require('../mysql/connection')
-// const departments = WAITING FOR CONTROLLERS / POOL
-
-router.get("/departments/manager", (req, res) => {
-    res.send('getting managers...')
-})
+router.get("/managers/:dept_name", managersController.getManagerInfoByDept)
 
 module.exports = router
