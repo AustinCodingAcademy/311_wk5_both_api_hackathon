@@ -7,6 +7,7 @@ app.get("/", (req, res) => {
 });
 
 app.use(require("./routes/employees.js"));
+app.use(require("./routes/salaries.js"));
 
 app.listen(port, () => {
   console.log(`Web server is listening on port ${port}.`);
