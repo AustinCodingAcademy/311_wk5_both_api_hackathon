@@ -6,6 +6,8 @@ router.get('/', controller.getEmployees);
 
 router.get('/:id', controller.getEmployeesById);
 
+router.get('getEmployeeSalaryById/:id', controller.getEmployeeSalaryById);
+
 router.get('firstname/:first_name', controller.getEmployeesByFirstName);
 
 modules.export = router;
