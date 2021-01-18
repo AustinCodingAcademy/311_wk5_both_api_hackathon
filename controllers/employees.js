@@ -52,4 +52,4 @@ const getEmployeesByFirstName = (req, res) => {
 };
 
 
-module.exports = { getEmployees, getEmployeesById, getEmployeesByFirstName }
+module.exports = { getEmployees, getEmployeesById, getEmployeesByFirstName, getEmployeeSalaryById }
