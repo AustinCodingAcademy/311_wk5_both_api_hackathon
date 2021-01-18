@@ -39,6 +39,20 @@ const getEmployeeSalaryById = (req, res) => {
   })
 }
 
+const getEmployeeDepartmentById = (req, res) => {
+  let id = req.params.id
+
+  let sql = "SELECT * FROM employees INNER JOIN departments on employees.? = departments.emp_no"
+  let value = id
+
+  sql = sql.format(sql, value)
+
+  pool.query(sql, (err, results) => {
+    if (err) throw err
+    return res.json(results)
+  })
+}
+
 const getEmployeesByFirstName = (req, res) => {
   let firstName = req.params.first_name;
   let sql = "SELECT FROM employees WHERE first_name = ?"
@@ -52,4 +66,4 @@ const getEmployeesByFirstName = (req, res) => {
 };
 
 
-module.exports = { getEmployees, getEmployeesById, getEmployeesByFirstName, getEmployeeSalaryById }
+module.exports = { getEmployees, getEmployeesById, getEmployeesByFirstName, getEmployeeSalaryById, getEmployeeDepartmentById }
