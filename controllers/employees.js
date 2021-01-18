@@ -25,6 +25,20 @@ const getEmployeesById = (req, res) => {
     })
 }
 
+const getEmployeeSalaryById = (req, res) => {
+  let id = req.params.id
+
+  let sql = "SELECT * FROM employees INNER JOIN salaries on employees.? = salaries.emp_no"
+  let value = id
+
+  sql = sql.format(sql, value)
+
+  pool.query(sql, (err, results) => {
+    if (err) throw err
+    return res.json(results)
+  })
+}
+
 const getEmployeesByFirstName = (req, res) => {
   let firstName = req.params.first_name;
   let sql = "SELECT FROM employees WHERE first_name = ?"
