@@ -12,4 +12,4 @@ router.get('getEmployeeDepartmentById/:id', controller.getEmployeeDepartmentById
 
 router.get('firstname/:first_name', controller.getEmployeesByFirstName);
 
-modules.export = router;
+module.export = router;
