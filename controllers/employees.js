@@ -14,7 +14,7 @@ const getEmployees = (req, res) => {
 const getEmployeesById = (req, res) => {
     let id = req.params.id
 
-    let sql = "SELECT FROM employees WHERE id = ?"
+    let sql = "SELECT * FROM employees WHERE emp_no = ?"
     let value = id
     
     sql = mysql.format(sql, value)
@@ -28,10 +28,10 @@ const getEmployeesById = (req, res) => {
 const getEmployeeSalaryById = (req, res) => {
   let id = req.params.id
 
-  let sql = "SELECT * FROM employees INNER JOIN salaries on employees.? = salaries.emp_no"
+  let sql = "SELECT * FROM employees INNER JOIN salaries on employees.emp_no = salaries.emp_no WHERE employees.emp_no = ?"
   let value = id
 
-  sql = sql.format(sql, value)
+  sql = mysql.format(sql, value)
 
   pool.query(sql, (err, results) => {
     if (err) throw err
@@ -42,10 +42,10 @@ const getEmployeeSalaryById = (req, res) => {
 const getEmployeeDepartmentById = (req, res) => {
   let id = req.params.id
 
-  let sql = "SELECT * FROM employees INNER JOIN departments on employees.? = departments.emp_no"
+  let sql = "select * from employees inner join dept_emp on employees.emp_no = dept_emp.emp_no inner join departments on departments.dept_no = dept_emp.dept_no where employees.emp_no = ?"
   let value = id
 
-  sql = sql.format(sql, value)
+  sql = mysql.format(sql, value)
 
   pool.query(sql, (err, results) => {
     if (err) throw err
