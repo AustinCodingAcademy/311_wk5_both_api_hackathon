@@ -4,11 +4,8 @@ const mysql = require("mysql");
 const getSalaries = (req, res) => {
   let sql = "SELECT * FROM salaries LIMIT 50";
   pool.query(sql, (err, result) => {
-    if (err) {
-      return res.json({
-        error: true,
-        message: "Error occurred: " + err,
-      });
+    if (err || result.length <= 0) {
+      return res.status(500).send("Something went wrong.");
     } else {
       return res.json(result);
     }
@@ -21,11 +18,8 @@ const getSalaryHistory = (req, res) => {
   sql = mysql.format(sql, replacements);
 
   pool.query(sql, (err, result) => {
-    if (err) {
-      return res.json({
-        error: true,
-        message: "Error occurred: " + err,
-      });
+    if (err || result.length <= 0) {
+      return res.status(500).send("Something went wrong.");
     } else {
       return res.json(result);
     }
@@ -39,11 +33,8 @@ const getCurrentSalary = (req, res) => {
   sql = mysql.format(sql, replacements);
 
   pool.query(sql, (err, result) => {
-    if (err) {
-      return res.json({
-        error: true,
-        message: "Error occurred: " + err,
-      });
+    if (err || result.length <= 0) {
+      return res.status(500).send("Something went wrong.");
     } else {
       return res.json(result);
     }
@@ -57,11 +48,8 @@ const getSalaryWithName = (req, res) => {
   sql = mysql.format(sql, replacements);
 
   pool.query(sql, (err, result) => {
-    if (err) {
-      return res.json({
-        error: true,
-        message: "Error occurred: " + err,
-      });
+    if (err || result.length <= 0) {
+      return res.status(500).send("Something went wrong.");
     } else {
       return res.json(result);
     }
