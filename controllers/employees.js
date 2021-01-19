@@ -6,10 +6,12 @@ const pool = require('../mysql/connection')
 
 
 const getEmployees = (req, res) => {
-    pool.query("SELECT * FROM employees LIMIT 50", (err, rows) => {
-        if (err)  return res.status(500).send('An unexpected error occurred');
-        return res.json(rows);
-    })
+    pool.query("SELECT * FROM employees LIMIT 50", (err, results) => {
+      if (err || results.length <= 0) {return res.status(500).send('An unexpected error occurred')
+    } else {
+      return res.json(results);
+    }
+  })
 }
 
 const getEmployeesById = (req, res) => {
@@ -18,9 +20,11 @@ const getEmployeesById = (req, res) => {
 
   sql = mysql.format(sql, [(req.params.emp_no)]);
 
-  pool.query(sql, (err, rows) => {
-    if (err)  return res.status(500).send('An unexpected error occurred');
-    return res.json(rows);
+  pool.query(sql, (err, results) => {
+    if (err || results.length <= 0) {return res.status(500).send('An unexpected error occurred')
+    } else {
+      return res.json(results);
+    }
   })
 }
 
@@ -29,10 +33,12 @@ const getEmployeesByFirstName = (req,res) => {
 
     sql = mysql.format(sql, [req.params.first_name]);
 
-    pool.query(sql, (err, rows) => {
-        if (err)  return res.status(500).send('An unexpected error occurred');
-        return res.json(rows);
-    })
+    pool.query(sql, (err, results) => {
+      if (err || results.length <= 0) {return res.status(500).send('An unexpected error occurred')
+    } else {
+      return res.json(results);
+    }
+  })
 }
 
 // Move the logic (everything after the route path) from the employees router into these functions

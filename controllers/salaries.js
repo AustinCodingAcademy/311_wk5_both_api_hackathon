@@ -8,9 +8,11 @@ const getSalariesById = (req,res) => {
 
   sql = mysql.format(sql, [(req.params.emp_no)]);
 
-  pool.query(sql, (err, rows) => {
-    if (err)  return res.status(500).send('An unexpected error occurred');
-    return res.json(rows);
+  pool.query(sql, (err, results) => {
+    if (err || results.length <= 0) {return res.status(500).send('An unexpected error occurred')
+    } else {
+      return res.json(results);
+    }
   })
 }
 
@@ -20,9 +22,11 @@ const getSalariesByAmount = (req,res) => {
     sql = mysql.format(sql, [req.params.salary]);
 
     pool.query(sql, (err, rows) => {
-        if (err)  return res.status(500).send('An unexpected error occurred');
-        return res.json(rows);
-    })
+      if (err || results.length <= 0) {return res.status(500).send('An unexpected error occurred')
+    } else {
+      return res.json(results);
+    }
+  })
 }
 
 module.exports = { 
