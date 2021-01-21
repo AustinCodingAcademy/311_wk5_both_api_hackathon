@@ -4,7 +4,7 @@ const mysql = require("mysql");
 const getEmployees = (req, res) => {
   let sql = "SELECT * FROM employees LIMIT 50";
   pool.query(sql, (err, result) => {
-    if (err || result.length <= 0) {
+    if (err) {
       return res.status(500).send("Something went wrong.");
     } else {
       return res.json(result);
@@ -20,7 +20,7 @@ const getEmployeesById = (req, res) => {
   console.log(sql);
 
   pool.query(sql, (err, result) => {
-    if (err || result.length <= 0) {
+    if (err) {
       return res.status(500).send("Something went wrong.");
     } else {
       return res.json(result);
@@ -34,7 +34,7 @@ const getEmployeesByFirstName = (req, res) => {
   sql = mysql.format(sql, replacements);
 
   pool.query(sql, (err, result) => {
-    if (err || result.length <= 0) {
+    if (err) {
       return res.status(500).send("Something went wrong.");
     } else {
       return res.json(result);
