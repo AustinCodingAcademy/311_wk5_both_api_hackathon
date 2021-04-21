@@ -58,7 +58,7 @@ We will use ONE person's Google Cloud database for this assignment. The steps fo
 
 We are going to use sample data given to use by MySQL. An overview of the process exists here: https://dev.mysql.com/doc/employee/en/
 
-1. Git clone the following repo in a new directory (NOT THIS ONE)
+1. Gcit clone the following repo in a new directory (NOT THIS ONE)
   * https://github.com/datacharmer/test_db.git
 
 2. cd into that directory
