@@ -1,8 +1,15 @@
+// (Justin)Person who is doing database work
+  Do the instructions under Database heading
+// Person doing the Initialize Project
+ (Matt) Do the collaboration heading
+  Do the creating apis Heading
+
+
 ## IMPORTANT
 
 Read this ENTIRE document before beginning work.
 
-## Collaboration
+## Collaboration ( Matt )
 
 ONE person from the group will fork this repo from ACA. That person will give everyone else permissions as a "collaborator". From that point on, you will all clone THE ONE repo and your changes will be in the form of __pull requests__. For each change/ticket you will create a new branch and work from there. Remember to always pull the latest from the master branch before you begin on a new task.
 
@@ -82,13 +89,13 @@ We are going to use sample data given to use by MySQL. An overview of the proces
 
 11. Start tinkering with the data via SELECT statements to get familiar with it. We will use this data with our API
 
-## Creating APIs
+## Creating APIs ( Matt )
 
 Let's get started...
 
 ### STEPS
 
-#### 1. Initialize your project
+#### 1. Initialize your project (Done Matt)
 
 * In this folder run `npm init`. Accept all the defaults (press enter a bunch of times)
 
@@ -130,7 +137,7 @@ Let's get started...
 * Congratulations, we have a server running
 
 
-#### 3. Express routes - BEGINNING
+#### 3. Express routes - BEGINNING (John)
 
 * Create a new folder called `routes`
 
@@ -142,7 +149,7 @@ Let's get started...
 
 * Export the router and import it into the `index.js` file. Use it with the prefix of "employees" so that each route above starts with "employees"
 
-#### 4. Express controllers - BEGINNING
+#### 4. Express controllers - BEGINNING (Justin)
 
 * Create a new folder called `controllers`
 
