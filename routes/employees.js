@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-// Grabbing the Chris's controller folder
+// Grabbing the controller folder
 const employeesController = require("../controllers/employees");
 //  Get all employees
 router.get("/", employeesController.getEmployees);
