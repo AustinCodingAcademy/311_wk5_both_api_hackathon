@@ -2,11 +2,15 @@
 const express = require('express');
 const app = express();
 const employees = require('./routes/employees')
+const departments = require('./routes/departments')
 
 //Body-Parsing
 app.use(express.json());
 app.use(express.urlencoded({ extended:true}))
-app.use(employees);
+
+//routes
+app.use("/", employees);
+app.use("/", departments)
 
 //Default Route
 app.get('/', (req, res) =>{

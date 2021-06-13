@@ -2,19 +2,19 @@ const mysql = require('mysql');
 const pool = require("../mysql/connections");
 const { handleSQLError } = require('../mysql/errors');
 
-const getEmployees = (req,res) => {
+const getDepartments = (req,res) => {
     
-    pool.query("SELECT * FROM employees LIMIT 50", (err, rows) => {
+    pool.query("SELECT * FROM departments LIMIT 50", (err, rows) => {
         //the following is assuming there is a function to handle errors named handleSQLErrors
         if (err) return handleSQLError(res,err)
             return res.json(rows);
     })
 }
 
-const getEmployeesById = (req,res) => {
+const getDepartmentsById = (req,res) => {
     //select the employees by ID
     let id = req.params.id;
-    let sql ="SELECT * FROM employees WHERE emp_no = ?";
+    let sql ="SELECT * FROM departments WHERE dept_no = ?";
     sql = mysql.format(sql, [id]);
 
     pool.query(sql, (err, rows) => {
@@ -23,11 +23,11 @@ const getEmployeesById = (req,res) => {
     })
 }
 
-const getEmployeesByFirstName = (req,res) => {
-    let first_name = req.params.first_name;
-    let sql = "SELECT * FROM employees WHERE first_name = ?"
+const getDepartmentManagers = (req,res) => {
+    let department_managers = req.params.first_name;
+    let sql = "select * from dept_manager join employees on employees.emp_no = dept_manager.emp_no join departments on departments.dept_no = dept_manager.dept_no"
 
-    sql = mysql.format(sql, [first_name]);
+    sql = mysql.format(sql, [department_managers]);
 
     pool.query(sql, (err, rows) => {
         if (err) return handleSQLError(res,err)
@@ -35,4 +35,4 @@ const getEmployeesByFirstName = (req,res) => {
     })
 }
 
-module.exports = { getEmployees, getEmployeesById, getEmployeesByFirstName }
+module.exports = { getDepartments, getDepartmentsById, getDepartmentManagers }
