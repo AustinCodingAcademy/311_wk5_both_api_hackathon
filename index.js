@@ -7,17 +7,10 @@ const employees = require('./routes/employees-router');
 app.use(express.json());
 app.use(express.urlencoded({ extended:true}))
 
-app.get("/", (req, res) =>{
-  res.send("getting employees")
-})
-
-
 //Default Route
 app.get('/', (req, res) =>{
   res.send('Welcome To Our API')
 })
-
-
 
 //Port Number
 const port = process.env.PORT || 3000;
