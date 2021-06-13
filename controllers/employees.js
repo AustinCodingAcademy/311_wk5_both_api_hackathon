@@ -1,6 +1,6 @@
 const mysql = require('mysql');
-const pool = require("../mysql/connection");
-const { apiErrorHandler } = require('../error/ApiError');
+const pool = require("../mysql/connections");
+// const { apiErrorHandler } = require('../error/ApiError');
 
 const getEmployees = (req,res) => {
     

@@ -1,11 +1,12 @@
 //Required Modules for Server
 const express = require('express');
 const app = express();
-const employees = require('./routes/employees-router');
+const employees = require('./routes/employees')
 
 //Body-Parsing
 app.use(express.json());
 app.use(express.urlencoded({ extended:true}))
+app.use(employees);
 
 //Default Route
 app.get('/', (req, res) =>{
