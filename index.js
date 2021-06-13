@@ -6,14 +6,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended:true}))
 
-
-
 //Default Route
 app.get('/', (req, res) =>{
   res.send('Welcome To Our API')
 })
-
-
 
 //Port Number
 const port = process.env.PORT || 3000;
