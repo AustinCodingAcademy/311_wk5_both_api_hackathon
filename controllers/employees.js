@@ -4,7 +4,7 @@ const { handleSQLError } = require('../mysql/error')
 
 const getEmployees = (req, res) => {
   // SELECT ALL USERS
-     console.log ("Inside getAllUsers");
+    
    let sql="SELECT * FROM employees LIMIT 50";
     
   pool.query(sql, (err, rows) => {
@@ -16,7 +16,7 @@ const getEmployees = (req, res) => {
 const getEmployeesById = (req, res) => {
   // SELECT USERS WHERE ID = <REQ PARAMS ID>
   let idValue=req.params.id;
- // console.log(idValue);
+
   let sql = `SELECT * FROM employees where emp_no=?`;
   // WHAT GOES IN THE BRACKETS
   sql = mysql.format(sql, [idValue]);
@@ -29,9 +29,9 @@ const getEmployeesById = (req, res) => {
 
 
 const getEmployeesByFirstName = (req, res) => {
-  // DELETE FROM USERS WHERE FIRST NAME = <REQ PARAMS FIRST_NAME>
+  
   let firstName=req.params.first_name;
- console.log(firstName);
+ 
   let sql = `SELECT * FROM employees where first_name=? LIMIT 5`;
 
   // WHAT GOES IN THE BRACKETS
@@ -43,9 +43,60 @@ const getEmployeesByFirstName = (req, res) => {
   })
 }
 
+const getEmployeesSalary = (req, res) => {
+  
+  let firstName=req.params.first_name;
+
+  let sql = `SELECT first_name,last_name, salary FROM employees JOIN salaries on employees.emp_no= salaries.emp_no where first_name=? LIMIT 1`;
+
+  // WHAT GOES IN THE BRACKETS
+  sql = mysql.format(sql, [firstName])
+
+  pool.query(sql, (err, rows) => {
+    if (err) return handleSQLError(res, err)
+    return res.json(rows);
+  })
+}
+
+
+const getEmployeesDept = (req, res) => {
+  
+  let firstName=req.params.first_name;
+
+  let sql = `SELECT first_name,last_name, dept_no FROM employees JOIN dept_emp on employees.emp_no=dept_emp.emp_no where first_name=? LIMIT 1`;
+
+  // WHAT GOES IN THE BRACKETS
+  sql = mysql.format(sql, [firstName])
+
+  pool.query(sql, (err, rows) => {
+    if (err) return handleSQLError(res, err)
+    return res.json(rows);
+  })
+}
+
+
+const getEmployeesTitle = (req, res) => {
+  
+  let firstName=req.params.first_name;
+
+  let sql = `SELECT first_name,last_name, title FROM employees JOIN titles on employees.emp_no=titles.emp_no where first_name=? LIMIT 1`;
+
+  // WHAT GOES IN THE BRACKETS
+  sql = mysql.format(sql, [firstName])
+
+  pool.query(sql, (err, rows) => {
+    if (err) return handleSQLError(res, err)
+    return res.json(rows);
+  })
+}
+
+
 
 module.exports = { 
     getEmployees,
     getEmployeesById,
-    getEmployeesByFirstName 
+    getEmployeesByFirstName,
+    getEmployeesSalary,
+    getEmployeesDept,
+    getEmployeesTitle 
     }
