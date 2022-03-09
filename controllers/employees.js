@@ -17,7 +17,7 @@ const getEmployeesById = (req, res) => {
   // SELECT USERS WHERE ID = <REQ PARAMS ID>
   let idValue=req.params.id;
 
-  let sql = `SELECT * FROM employees where emp_no=?`;
+  let sql = `SELECT * FROM employees where emp_no=? LIMIT 1`;
   // WHAT GOES IN THE BRACKETS
   sql = mysql.format(sql, [idValue]);
 
