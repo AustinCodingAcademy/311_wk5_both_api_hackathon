@@ -2,6 +2,7 @@ const express = require('express')
 const usersController = require('../controllers/employees')
 const router = express.Router()
 
+// routes
 router.get('/', usersController.getEmployees);
  
 router.get('/:id', usersController.getEmployeesById);
