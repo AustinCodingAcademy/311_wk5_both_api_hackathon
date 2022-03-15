@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const usersRouter = require('./routes/employees');
 const app = express();
 
+// Port used, comment from computer 2
 const port = process.env.PORT || 4001;
 app.use(bodyParser.json())
 
