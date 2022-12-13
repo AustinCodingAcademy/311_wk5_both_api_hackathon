@@ -1,15 +1,15 @@
-const express =require('express');
+const express = require('express');
 const app = express();
-const employees = require('./routes/employees')
+const employees = require('./routes/employees');
 
 const port = process.env.PORT || 4001;
 
 const bodyParser = require('body-parser')
-const employees = require('./routers/employees')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use(employees)
+
+app.use('/employees', employees)
 
 
 
