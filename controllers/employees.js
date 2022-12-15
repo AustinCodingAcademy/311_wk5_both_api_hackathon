@@ -1,6 +1,6 @@
 const mysql = require('mysql')
 const pool = require('../mysql/connections')
-const sqlErrorHandler = require("../mysql/error")
+const handleSQLError = require("../mysql/error")
 
 const getEmployees = (req, res) => {
     pool.query('SELECT * FROM employees LIMIT 50', (err, rows) => {
@@ -10,8 +10,8 @@ const getEmployees = (req, res) => {
 }
 
 const getEmployeesById = (req, res) => {
-    let sql = 'SELECT ?? FROM ?? WHERE ?? = ?'
-    const replacements = ["id", "employees", "emp_no", req.params.emp_no]
+    let sql = 'SELECT * FROM ?? WHERE ?? = ?'
+    const replacements = ["employees", "emp_no", req.params.emp_no]
     sql = mysql.format(sql, replacements)
 
     pool.query(sql, (err, rows) => {
@@ -21,9 +21,8 @@ const getEmployeesById = (req, res) => {
 }
 
 const getEmployeesByFirstName = (req, res) => {
-    console.log(req.params)
-    let sql = 'SELECT ?? FROM ?? WHERE ?? = ?'
-    const replacements = ["*", "employees", "first_name", req.params.first_name]
+    let sql = 'SELECT * FROM ?? WHERE ?? = ?'
+    const replacements = ["employees", "first_name", req.params.first_name]
     sql = mysql.format(sql, replacements)
 
     pool.query(sql, (err, rows) => {
