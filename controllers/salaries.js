@@ -30,14 +30,14 @@ const getSalaryByFirstName = (req, res) => {
 
     // Logic to access data here, similar to 'employees'
 
-    // let sql = 'SELECT * FROM ?? WHERE ?? = ?'
-    // const replacements = ["employees", "first_name", req.params.first_name]
-    // sql = mysql.format(sql, replacements)
+    let sql = 'SELECT * FROM ?? JOIN ?? WHERE ?? = ?? HAVING ?? = ?'
+    const replacements = ["salaries", "employees", "salaries.emp_no", "employees.emp_no", "first_name", req.params.first_name]
+    sql = mysql.format(sql, replacements)
 
-    // pool.query(sql, (err, rows) => {
-    //     if (err) return handleSQLError(res, err)
-    //     return res.json(rows);
-    // })
+    pool.query(sql, (err, rows) => {
+        if (err) return handleSQLError(res, err)
+        return res.json(rows);
+    })
 }
 
 module.exports = {
